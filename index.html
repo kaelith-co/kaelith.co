@@ -2,196 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kaelith.co</title>
 
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    body {
-      background: radial-gradient(circle at top, #2a2a2a, #0f0f0f);
-      color: #eaeaea;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 14px 24px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      z-index: 100;
-    }
-
-    nav a {
-      opacity: 0.6;
-      font-size: 0.9rem;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 120px 20px 60px;
-      text-align: center;
-    }
-
-    .logo {
-      width: 90px;
-      border-radius: 50%;
-      margin-bottom: 14px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.15);
-    }
-
-    .hero h1 {
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-
-    .tagline {
-      opacity: 0.6;
-      margin-top: 6px;
-      font-size: 0.9rem;
-    }
-
-    /* GALLERY */
-    .gallery {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .gallery-item {
-      background: rgba(255,255,255,0.05);
-      padding: 14px;
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .gallery-item span {
-      display: block;
-      margin-top: 10px;
-      font-size: 0.85rem;
-      opacity: 0.6;
-      text-align: center;
-    }
-
-    /* NEXT BUTTON */
-    .next-wrap {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .next-btn {
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    .next-btn:hover {
-      opacity: 1;
-    }
-
-    /* ABOUT */
-    .about {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .about h2 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .about p {
-      opacity: 0.6;
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-
-    .before-after {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .before-after img {
-      width: 100%;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.05);
-      padding: 14px;
-    }
-
-    /* CONTACT */
-    .contact {
-      padding: 60px 20px 100px;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: 1.2rem;
-      margin-bottom: 14px;
-    }
-
-    .contact a {
-      margin: 0 10px;
-      opacity: 0.7;
-      font-size: 0.9rem;
-    }
-
-    .contact a:hover {
-      opacity: 1;
-    }
-
-    /* MOBILE FIX */
-    @media (max-width: 600px) {
-      .hero {
-        padding-top: 100px;
-      }
-    }
-  </style>
+  <!-- LINK ONLY ONE CSS FILE -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -205,7 +20,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="logo.png" alt="Kaelith Logo" class="logo">
+    <img src="logo.png" alt="Kaelith Logo" class="logo" />
     <h1>Kaelith.co</h1>
     <div class="tagline">Visual storytelling & motion</div>
   </section>
@@ -215,17 +30,17 @@
     <div class="gallery-grid">
 
       <div class="gallery-item">
-        <img src="foggy-hills.jpg" alt="Foggy Hills">
+        <img src="foggy-hills.jpg" alt="Foggy Hills" />
         <span>Foggy Hills</span>
       </div>
 
       <div class="gallery-item">
-        <img src="empty-road.jpg" alt="Empty Road">
+        <img src="empty-road.jpg" alt="Empty Road" />
         <span>Empty Road</span>
       </div>
 
       <div class="gallery-item">
-        <img src="distant-lights.jpg" alt="Distant Lights">
+        <img src="distant-lights.jpg" alt="Distant Lights" />
         <span>Distant Lights</span>
       </div>
 
@@ -246,19 +61,23 @@
     </p>
 
     <div class="before-after">
-      <img src="raw.jpg" alt="Raw">
-      <img src="edited.jpg" alt="Edited">
+      <img src="raw.jpg" alt="Raw version" />
+      <img src="edited.jpg" alt="Edited version" />
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
-  <h2>Contact</h2>
+    <h2>Contact</h2>
 
-  <div class="contact-links">
-    <a href="https://www.instagram.com/kaleith.co?igsh=MXY2aGxkcXQ5amlhdw==" target="_blank">Instagram</a>
-    <a href="https://wa.me/918627829711" target="_blank">WhatsApp</a>
-  </div>
+    <div class="contact-links">
+      <a href="https://www.instagram.com/kaleith.co?igsh=MXY2aGxkcXQ5amlhdw==" target="_blank">
+        Instagram
+      </a>
+      <a href="https://wa.me/918627829711" target="_blank">
+        WhatsApp
+      </a>
+    </div>
   </section>
 
 </body>
