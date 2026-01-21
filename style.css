@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0e0e0e;
+  color: #eaeaea;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.tagline {
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+.gallery img {
+  width: 92%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  filter: brightness(0.9);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+
+.gallery img:hover {
+  transform: scale(1.01);
+  opacity: 0.95;
+}
+.gallery img:active {
+  transform: scale(0.99);
+  opacity: 0.9;
+}
+body {
+  background: #0e0e0e;
+  color: #eaeaea;
+  font-family: 'Inter', system-ui, sans-serif;
+}.gallery {
+  display: flex;
+  justify-content: center;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+figure img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+figure img:hover {
+  transform: scale(1.01);
+  filter: brightness(1.05);
+}
+.brand {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  opacity: 0.9;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.brand h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.brand .tagline {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  letter-spacing: 0.06em;
+}
+.logo {
+  width: 64px;
+  height: 64px;
+}
+.brand {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  opacity: 0.9;
+
+border-radius: 50%; 
+}.logo {
+  width: 90px;
+  height: 90px;
+}.gallery img {
+  width: 100%;
+  max-width: 420px;   /* ← change this number */
+  height: auto;
+}figure {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 16px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
