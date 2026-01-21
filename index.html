@@ -1,38 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kaelith.co</title>
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="container">
 
-    <!-- BRAND -->
-    <header class="brand">
-      <img src="logo.png" alt="Kaelith logo" class="logo">
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#feedback">Feedback</a>
+  </nav>
+
+  <main id="home">
+
+    <!-- HEADER -->
+    <header class="hero">
+      <img src="logo.png" alt="Kaelith logo" class="logo" />
       <h1>Kaelith.co</h1>
       <p class="tagline">Visual storytelling & motion</p>
     </header>
 
     <!-- GALLERY -->
     <section class="gallery">
+
       <figure>
-        <img src="foggy-hills.jpg" alt="Foggy hills at dusk">
-        <figcaption>Foggy hills</figcaption>
+        <img src="foggy-hills.jpg" alt="Foggy Hills">
+        <figcaption>Foggy Hills</figcaption>
       </figure>
+
+      <figure>
+        <img src="empty-road.jpg" alt="Empty Road">
+        <figcaption>Empty Road</figcaption>
+      </figure>
+
+      <figure>
+        <img src="distant-lights.jpg" alt="Distant Lights">
+        <figcaption>Distant Lights</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- NEXT -->
+    <div class="next-wrap">
+      <a href="#about" class="next-btn">
+        Next <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>
+        I focus on quiet moments, empty spaces, and motion that feels slow.
+        My work blends mood, grain, and light to tell visual stories.
+      </p>
+
+      <div class="before-after">
+        <figure>
+          <img src="raw.jpg" alt="Raw photo">
+          <figcaption>RAW</figcaption>
+        </figure>
+
+        <figure>
+          <img src="edited.jpg" alt="Edited photo">
+          <figcaption>EDITED</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <div class="next-wrap">
+      <a href="#feedback" class="next-btn">
+        Contact <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- FEEDBACK -->
+    <section id="feedback" class="feedback">
+<section id="contact" class="contact">
+  <section id="contact" class="contact">
+  <h2>Contact</h2>
+
+  <div class="contact-links">
+
+    <a href="https://instagram.com/YOUR_IG_USERNAME"
+       target="_blank"
+       class="contact-item">
+      <img src="instagram.png" alt="Instagram" class="contact-icon">
+      <span>Instagram</span>
+    </a>
+
+    <a href="https://wa.me/918627829711"
+       target="_blank"
+       class="contact-item">
+      <span class="icon">💬</span>
+      <span>WhatsApp</span>
+    </a>
+
+  </div>
+</section>
+    
+  </div>
+</section>
+
+      
     </section>
 
   </main>
+
 </body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </html>
