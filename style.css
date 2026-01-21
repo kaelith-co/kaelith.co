@@ -1,6 +1,4 @@
-/* =========================
-   RESET
-========================= */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -18,17 +16,13 @@ body {
   line-height: 1.6;
 }
 
-/* =========================
-   LINKS
-========================= */
+/* LINKS */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAV */
 nav {
   position: fixed;
   top: 0;
@@ -52,9 +46,7 @@ nav a:hover {
   opacity: 1;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 .hero {
   padding: 120px 20px 60px;
   text-align: center;
@@ -64,7 +56,10 @@ nav a:hover {
   width: 90px;
   border-radius: 50%;
   margin-bottom: 14px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.35),
+    0 0 45px rgba(255,255,255,0.18),
+    0 0 90px rgba(255,255,255,0.08);
 }
 
 .hero h1 {
@@ -78,9 +73,7 @@ nav a:hover {
   margin-top: 6px;
 }
 
-/* =========================
-   GALLERY
-========================= */
+/* GALLERY */
 .gallery {
   padding: 40px 20px;
   max-width: 1100px;
@@ -94,17 +87,36 @@ nav a:hover {
 }
 
 .gallery-item {
+  position: relative;
+  z-index: 1;
   background: rgba(255, 255, 255, 0.05);
   padding: 14px;
   border-radius: 18px;
   backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease;
 }
 
 .gallery-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 22px;
+  background: radial-gradient(
+    circle at top,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.12),
+    transparent 70%
+  );
+  filter: blur(18px);
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .gallery-item img {
@@ -121,9 +133,7 @@ nav a:hover {
   text-align: center;
 }
 
-/* =========================
-   NEXT BUTTON
-========================= */
+/* NEXT */
 .next-wrap {
   text-align: center;
   margin: 40px 0;
@@ -133,20 +143,17 @@ nav a:hover {
   display: inline-block;
   padding: 10px 22px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(6px);
   font-size: 0.85rem;
   opacity: 0.8;
-  transition: opacity 0.3s ease;
 }
 
 .next-btn:hover {
   opacity: 1;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT */
 .about {
   padding: 60px 20px;
   max-width: 900px;
@@ -174,15 +181,11 @@ nav a:hover {
   width: 100%;
   border-radius: 18px;
   padding: 14px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* =========================
-   CONTACT
-========================= */
-/* =========================
-   CONTACT (FIXED)
-========================= */
+/* CONTACT */
 .contact {
   padding: 70px 20px 120px;
   text-align: center;
@@ -203,44 +206,13 @@ nav a:hover {
   font-size: 0.9rem;
   padding: 10px 18px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(6px);
   opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .contact-links a:hover {
   opacity: 1;
   transform: translateY(-2px);
-   }
-/* =========================
-   ANDROID GLOW FIX
-========================= */
-
-/* Image card glow */
-.gallery-item {
-  position: relative;
-}
-
-.gallery-item::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 20px;
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0.05),
-    transparent 70%
-  );
-  filter: blur(12px);
-  opacity: 0.8;
-  z-index: -1;
-}
-
-/* Hero logo glow (Android safe) */
-.logo {
-  box-shadow:
-    0 0 25px rgba(255, 255, 255, 0.25),
-    0 0 60px rgba(255, 255, 255, 0.15);
-}
+     }
