@@ -1,178 +1,211 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* BODY */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(circle at top, #2b2b2b, #0e0e0e);
+  background: radial-gradient(circle at top, #2a2a2a, #0f0f0f);
   color: #eaeaea;
   line-height: 1.6;
 }
 
-/* NAV */
-.nav {
+/* =========================
+   LINKS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 24px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   gap: 28px;
-  padding: 18px;
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 10;
+  z-index: 100;
 }
 
-.nav a {
-  text-decoration: none;
-  color: #fff;
+nav a {
+  font-size: 0.9rem;
   opacity: 0.6;
-  font-size: 14px;
-  transition: 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-.nav a:hover {
+nav a:hover {
   opacity: 1;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
+  padding: 120px 20px 60px;
   text-align: center;
-  padding: 60px 20px 30px;
 }
 
 .logo {
   width: 90px;
   border-radius: 50%;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.hero h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .tagline {
+  font-size: 0.9rem;
   opacity: 0.6;
   margin-top: 6px;
-  font-size: 14px;
 }
 
-/* GALLERY */
+/* =========================
+   GALLERY
+========================= */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
   padding: 40px 20px;
-}
-
-/* IMAGE CARD */
-figure {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 14px;
-  border-radius: 18px;
-  text-align: center;
-  backdrop-filter: blur(6px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.08),
-    0 10px 30px rgba(0,0,0,0.5);
-  transition: 0.35s ease;
-}
-
-figure:hover {
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.2),
-    0 20px 50px rgba(255,255,255,0.08);
-  transform: translateY(-4px);
-}
-
-/* IMAGE */
-figure img {
-  width: 100%;
-  border-radius: 14px;
-  display: block;
-}
-
-/* CAPTION */
-figcaption {
-  margin-top: 10px;
-  font-size: 13px;
-  opacity: 0.6;
-}
-
-/* BUTTON */
-button,
-.next-btn {
-  display: inline-block;
-  margin: 30px auto;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.15);
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-button:hover,
-.next-btn:hover {
-  background: rgba(255,255,255,0.15);
-}
-
-/* ABOUT */
-.about {
-  padding: 60px 20px;
-  text-align: center;
-  max-width: 720px;
+  max-width: 1100px;
   margin: auto;
 }
 
-.about p {
-  opacity: 0.65;
-  font-size: 14px;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-/* CONTACT */
-.contact {
-  padding: 50px 20px;
+.gallery-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 14px;
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.gallery-item span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  opacity: 0.6;
   text-align: center;
 }
 
-.contact a img {
-  width: 32px;
-  margin: 10px;
-  opacity: 0.7;
-  transition: 0.3s ease;
+/* =========================
+   NEXT BUTTON
+========================= */
+.next-wrap {
+  text-align: center;
+  margin: 40px 0;
 }
 
-.contact a img:hover {
+.next-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  font-size: 0.85rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.next-btn:hover {
   opacity: 1;
 }
-/* MOBILE FIX – keep desktop unchanged */
-@media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
 
-  figure {
-    padding: 10px;
-  }
-
-  figcaption {
-    font-size: 12px;
-  }
+/* =========================
+   ABOUT
+========================= */
+.about {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* FIX MOBILE ALIGNMENT */
-.gallery,
-.about,
-.hero,
-.contact {
-  max-width: 1100px;
-  margin: 0 auto;
+.about h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.before-after img {
   width: 100%;
+  border-radius: 18px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* prevent overflow */
-body {
-  overflow-x: hidden;
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  padding: 60px 20px 100px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.contact a {
+  margin: 0 10px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.contact a:hover {
+  opacity: 1;
+}
+
+/* =========================
+   MOBILE FIXES
+========================= */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 100px;
+  }
 }
