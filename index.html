@@ -6,14 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    /* ===== BASE ===== */
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       background: #f6f2ea;
       font-family: 'Inter', sans-serif;
       color: #111;
+      opacity: 0;
+      transition: opacity 0.8s ease;
     }
 
     /* ===== HEADER ===== */
@@ -27,8 +35,8 @@
       height: 90px;
       border-radius: 50%;
       object-fit: contain;
-      margin-bottom: 16px;
       background: white;
+      margin-bottom: 16px;
     }
 
     h1 {
@@ -57,8 +65,7 @@
       width: 100%;
       height: 70vh;
       object-fit: cover;
-      display: block;
-      filter: contrast(1.05) brightness(0.9);
+      filter: brightness(0.9) contrast(1.05);
     }
 
     .hero::after {
@@ -91,8 +98,8 @@
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 60px;
-      align-items: center;
       padding: 0 20px;
+      align-items: center;
     }
 
     .intro-text h2 {
@@ -115,300 +122,233 @@
       border-radius: 20px;
     }
 
+    /* ===== STYLE STORY ===== */
+    .style-story {
+      max-width: 1100px;
+      margin: 120px auto;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .style-story img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      filter: brightness(0.88) contrast(1.05);
+    }
+
+    .style-story::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0)
+      );
+    }
+
+    .style-text {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      max-width: 70%;
+    }
+
+    /* ===== SLIDER ===== */
+    .slider-section {
+      max-width: 1100px;
+      margin: 120px auto;
+      padding: 0 20px;
+    }
+
+    .slider-container {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .slider {
+      position: relative;
+      height: 65vh;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.02);
+      transition: opacity 1s ease, transform 1.2s ease;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      max-width: 70%;
+      color: white;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+    }
+
+    .slide.active .slide-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Controls */
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.25);
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .slider-container:hover .nav {
+      opacity: 1;
+    }
+
+    .nav.prev { left: 20px; }
+    .nav.next { right: 20px; }
+
+    .progress-bar {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: white;
+    }
+
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
-      .hero-text {
-        font-size: 22px;
+      .hero-text,
+      .slide-caption,
+      .style-text {
         left: 20px;
         bottom: 24px;
+        font-size: 20px;
+        max-width: 85%;
       }
 
       .intro {
         grid-template-columns: 1fr;
-        margin: 80px auto;
       }
 
       .intro-image img {
         height: 420px;
       }
     }
-    /* ===== STYLE STORY ===== */
-.style-story {
-  max-width: 1100px;
-  margin: 120px auto;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-}
-
-.style-story img {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.88) contrast(1.05);
-}
-
-.style-story::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0)
-  );
-}
-
-.style-text {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  z-index: 2;
-  max-width: 70%;
-}
-
-.style-text p {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.75); /* THIS is the cinematic transparency */
-}
-
-@media (max-width: 768px) {
-  .style-story img {
-    height: 50vh;
-  }
-
-  .style-text {
-    left: 20px;
-    bottom: 24px;
-  }
-
-  .style-text p {
-    font-size: 18px;
-  }
-      }
-    /* ===== SLIDER SECTION ===== */
-.slider-section {
-  max-width: 1100px;
-  margin: 120px auto;
-  padding: 0 20px;
-}
-
-.slider-container {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #000;
-}
-
-.slider {
-  position: relative;
-  height: 65vh;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-/* Buttons */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.25);
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.slider-container:hover .nav {
-  opacity: 1;
-}
-
-.nav.prev { left: 20px; }
-.nav.next { right: 20px; }
-
-/* Progress bar */
-.progress-bar {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 3px;
-  background: rgba(255,255,255,0.3);
-  overflow: hidden;
-  border-radius: 2px;
-}
-
-.progress {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: white;
-  
-        }
-    /* ===== SLIDER ANIMATION ===== */
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: scale(1.02);
-  transition: opacity 1s ease, transform 1.2s ease;
-  pointer-events: none;
-}
-
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-/* Caption animation */
-.slide-caption {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  max-width: 70%;
-  color: white;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
-}
-
-.slide.active .slide-caption {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Mobile tweak */
-@media (max-width: 768px) {
-  .slide-caption {
-    left: 20px;
-    bottom: 24px;
-    max-width: 85%;
-  }
-  }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <img class="logo" src="images/logo.png" alt="Kaelith logo">
-    <h1>Kaelith</h1>
-    <p>VISUALS IN MOTION</p>
-  </header>
+<header>
+  <img src="images/logo.png" class="logo" alt="Logo">
+  <h1>Kaelith</h1>
+  <p>VISUALS IN MOTION</p>
+</header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <img src="images/hero.jpg" alt="Hero image">
-    <div class="hero-text">
-      Stillness, before the world moves again.
-    </div
+<section class="hero">
+  <img src="images/hero.jpg">
+  <div class="hero-text">Stillness, before the world moves again.</div>
+</section>
 
-  </section>
-
-  <!-- ===== INTRO ===== -->
-  <section class="intro">
-    <div class="intro-text">
-      <h2>Hi, I’m Kaelith.</h2>
-      <p>
-        I work with visuals — shaping moments through color, pacing, and atmosphere.
-      </p>
-      <p>
-        My focus is editing that feels intentional and human.
-        Not loud. Not forced. Just honest frames that breathe.
-      </p>
-    </div>
-
-    <div class="intro-image">
-      <img src="images/intro.jpg" alt="Editorial visual">
-    </div>
-  </section>
-  <section class="style-story">
-  <img src="images/style.jpg" alt="Editing style visual">
-
-  <div class="style-text">
-    <p>
-      I shoot for mood, not perfection.
-      <br>
-      My edits stay quiet — soft light, honest color,
-      and time left untouched.
-    </p>
+<section class="intro">
+  <div class="intro-text">
+    <h2>Hi, I’m Kaelith.</h2>
+    <p>I work with visuals — shaping moments through color, pacing, and atmosphere.</p>
+    <p>Editing that feels intentional. Quiet. Human.</p>
   </div>
-  </section>
-<!-- ===== SLIDER ===== -->
+  <div class="intro-image">
+    <img src="images/intro.jpg">
+  </div>
+</section>
+
+<section class="style-story">
+  <img src="images/style.jpg">
+  <div class="style-text">
+    I shoot for mood, not perfection.<br>
+    Soft light. Honest color. Time untouched.
+  </div>
+</section>
+
 <section class="slider-section">
   <div class="slider-container">
-
     <div class="slider">
       <div class="slide active">
-  <img src="images/slide1.jpg" alt="Slide one">
-  <div class="slide-caption">
-    <h3>Quiet strength, wrapped in heritage.</h3>
-    <p>Light held gently. Details left untouched.</p>
-  </div>
+        <img src="images/slide1.jpg">
+        <div class="slide-caption">
+          <h3>Quiet strength.</h3>
+          <p>Light held gently.</p>
+        </div>
       </div>
       <div class="slide">
-  <img src="images/slide2.jpg" alt="Slide two">
-  
-  <div class="slide-caption">
-    <h3>Order in the quiet.</h3>
-    <p>
-      Artificial light. Repeating forms.<br>
-      Space left untouched.
-    </p>
-  </div>
+        <img src="images/slide2.jpg">
+        <div class="slide-caption">
+          <h3>Order in the quiet.</h3>
+          <p>Space left untouched.</p>
+        </div>
       </div>
-<div class="slide">
-  <img src="images/slide3.jpg" alt="Slide three">
-
-  <div class="slide-caption">
-    <h3>Silence shaped by space.</h3>
-    <p>
-      Lines, reflections, and restraint.<br>
-      Letting the frame speak first.
-    </p>
-  </div>
-</div>
+      <div class="slide">
+        <img src="images/slide3.jpg">
+        <div class="slide-caption">
+          <h3>Silence shaped.</h3>
+          <p>Letting frames breathe.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Navigation -->
     <button class="nav prev">‹</button>
     <button class="nav next">›</button>
 
-    <!-- Progress bar -->
-    <div class="progress-bar">
-      <span class="progress"></span>
-    </div>
-
+    <div class="progress-bar"><span class="progress"></span></div>
   </div>
 </section>
-  <script>
+
+<script>
   const slides = document.querySelectorAll('.slide');
   const progress = document.querySelector('.progress');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+
   let index = 0;
   let interval;
 
@@ -438,24 +378,19 @@
   }
 
   function startAuto() {
+    clearInterval(interval);
     resetProgress();
     interval = setInterval(nextSlide, 3000);
   }
 
-  document.querySelector('.next').onclick = () => {
-    clearInterval(interval);
-    nextSlide();
-    startAuto();
-  };
-
-  document.querySelector('.prev').onclick = () => {
-    clearInterval(interval);
-    prevSlide();
-    startAuto();
-  };
+  nextBtn.onclick = () => { nextSlide(); startAuto(); };
+  prevBtn.onclick = () => { prevSlide(); startAuto(); };
 
   showSlide(index);
   startAuto();
-  </script>
+
+  window.onload = () => document.body.style.opacity = '1';
+</script>
+
 </body>
 </html>
