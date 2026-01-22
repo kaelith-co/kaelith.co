@@ -1,1 +1,116 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kaelith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f6f2ea;
+      font-family: 'Inter', sans-serif;
+      color: #111;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      text-align: center;
+      padding: 48px 20px 24px;
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: contain;
+      margin-bottom: 16px;
+      background: white;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 6px;
+      letter-spacing: 2px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      max-width: 1100px;
+      margin: 40px auto;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.05) brightness(0.9);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0)
+      );
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      z-index: 2;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      max-width: 70%;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 22px;
+        left: 20px;
+        bottom: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <img class="logo" src="images/logo.png" alt="Kaelith logo">
+    <h1>Kaelith</h1>
+    <p>VISUALS IN MOTION</p>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <img src="images/hero.jpg" alt="Hero image">
+    <div class="hero-text">
+      Stillness, before the world moves again.
+    </div>
+  </section>
+
+</body>
+</html>
