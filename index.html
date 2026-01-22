@@ -190,6 +190,82 @@
     font-size: 18px;
   }
       }
+    /* ===== SLIDER SECTION ===== */
+.slider-section {
+  max-width: 1100px;
+  margin: 120px auto;
+  padding: 0 20px;
+}
+
+.slider-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+}
+
+.slider {
+  position: relative;
+  height: 65vh;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Buttons */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.25);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slider-container:hover .nav {
+  opacity: 1;
+}
+
+.nav.prev { left: 20px; }
+.nav.next { right: 20px; }
+
+/* Progress bar */
+.progress-bar {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.progress {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: white;
+        }
   </style>
 </head>
 
@@ -239,6 +315,77 @@
     </p>
   </div>
   </section>
+<!-- ===== SLIDER ===== -->
+<section class="slider-section">
+  <div class="slider-container">
 
+    <div class="slider">
+      <img src="images/slide1.jpg" class="slide active">
+      <img src="images/slide2.jpg" class="slide">
+      <img src="images/slide3.jpg" class="slide">
+    </div>
+
+    <!-- Navigation -->
+    <button class="nav prev">‹</button>
+    <button class="nav next">›</button>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+      <span class="progress"></span>
+    </div>
+
+  </div>
+</section>
+  <script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.querySelector('.progress');
+  let index = 0;
+  let interval;
+
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+    resetProgress();
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  function resetProgress() {
+    progress.style.transition = 'none';
+    progress.style.width = '0%';
+    requestAnimationFrame(() => {
+      progress.style.transition = 'width 3s linear';
+      progress.style.width = '100%';
+    });
+  }
+
+  function startAuto() {
+    resetProgress();
+    interval = setInterval(nextSlide, 3000);
+  }
+
+  document.querySelector('.next').onclick = () => {
+    clearInterval(interval);
+    nextSlide();
+    startAuto();
+  };
+
+  document.querySelector('.prev').onclick = () => {
+    clearInterval(interval);
+    prevSlide();
+    startAuto();
+  };
+
+  showSlide(index);
+  startAuto();
+  </script>
 </body>
 </html>
