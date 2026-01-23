@@ -69,7 +69,133 @@ header p{
   font-size:28px;
   max-width:70%;
 }
+  /* ===== INTRO SECTION ===== */
+.intro {
+  position: relative;
+  max-width: 1100px;
+  margin: 140px auto;
+  border-radius: 28px;
+  overflow: hidden;
+}
 
+/* Sky background */
+.intro-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.95);
+  z-index: 0;
+}
+
+/* Content layout */
+.intro-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  padding: 72px 64px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+/* Text */
+.intro-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  margin-bottom: 16px;
+}
+
+.intro-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.soft-line {
+  opacity: 0.6;
+  margin-top: 12px;
+}
+
+/* Lampost image (NO CROP) */
+.intro-image img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+/* ===== MOBILE SAFE ===== */
+@media (max-width: 768px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    padding: 48px 28px;
+    gap: 32px;
+  }
+
+  .intro-text h2 {
+    font-size: 28px;
+  }
+
+  .intro-image img {
+    max-height: 260px;
+  }
+}
+/* ===== STORY SECTION ===== */
+.story {
+  position: relative;
+  max-width: 1100px;
+  margin: 160px auto;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.story img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  filter: brightness(0.9);
+}
+
+.story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0)
+  );
+}
+
+.story-text {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  z-index: 2;
+  max-width: 70%;
+  font-family: 'Playfair Display', serif;
+  color: rgba(255,255,255,0.9);
+}
+
+.story-text h3 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.story-text p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.story-text .soft {
+  opacity: 0.6;
+  font-size: 16px;
+}
 /* ===== SLIDER SHARED ===== */
 .slider-section{
   max-width:1100px;
@@ -141,6 +267,25 @@ header p{
   .slider{height:50vh}
   .caption{left:24px;bottom:24px}
 }
+  @media (max-width: 768px) {
+  .story img {
+    height: 45vh;
+  }
+
+  .story-text {
+    left: 24px;
+    bottom: 24px;
+    max-width: 85%;
+  }
+
+  .story-text h3 {
+    font-size: 22px;
+  }
+
+  .story-text p {
+    font-size: 16px;
+  }
+    }
 </style>
 </head>
 
@@ -156,6 +301,43 @@ header p{
   <img src="images/hero.jpg">
   <div class="hero-text">Stillness, before the world speaks.</div>
 </section>
+  <section class="intro">
+  <img src="images/sky.jpg" class="intro-bg" alt="Sky background">
+
+  <div class="intro-content">
+    <div class="intro-text">
+      <h2>Hi, I’m Kaelith.</h2>
+      <p>
+        I work with visuals — shaping moments through color, pacing, and atmosphere.
+      </p>
+      <p class="soft-line">
+        Editing that feels intentional. Quiet. Human.
+      </p>
+    </div>
+
+    <div class="intro-image">
+      <img src="images/lampost.jpg" alt="Lampost">
+    </div>
+  </div>
+  </section>
+  <section class="story">
+  <img src="images/story.jpg" alt="Story image">
+
+  <div class="story-text">
+    <h3>Why I Create</h3>
+    <p>
+      I don’t chase perfection.<br>
+      I wait for moments to settle.
+    </p>
+    <p>
+      Light finds its way when nothing is forced.<br>
+      Silence becomes structure.
+    </p>
+    <p class="soft">
+      This is where my work begins.
+    </p>
+  </div>
+  </section>
 
 <!-- ===== SLIDER 1 ===== -->
 <section class="slider-section">
