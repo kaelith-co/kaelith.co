@@ -345,6 +345,20 @@ header p {
     border-radius: 16px;
   }
     }
+  /* ===== MOBILE: LAMP POST IMAGE BEHAVES ===== */
+@media (max-width: 768px) {
+  .intro-image img {
+    width: 100%;
+    height: auto;          /* ← let it breathe */
+    max-height: 280px;     /* ← key line */
+    object-fit: contain;   /* ← no crop, full image */
+    display: block;
+    margin: 0 auto;
+  }
+}
+  .intro-image img {
+  opacity: 0.95;
+  }
 </style>
 </head>
 
