@@ -251,6 +251,10 @@ header p {
   width: 0%;
   background: white;
 }
+  .slider-container.cinematic {
+  background: #111;
+  }
+  
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
@@ -340,6 +344,52 @@ header p {
     <div class="progress-bar"><div class="progress"></div></div>
   </div>
 </section>
+  <section class="slider-section reveal">
+  <div class="slider-container cinematic">
+    <div class="slider slider-2">
+
+      <div class="slide active">
+        <img src="images/slideA.jpg">
+        <div class="slide-caption">
+          <h3>Quiet Bloom</h3>
+          <p>Soft contrast • muted greens • shallow focus</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="images/slideB.jpg">
+        <div class="slide-caption">
+          <h3>Still Growing</h3>
+          <p>Natural tones • gentle grain • calm framing</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="images/slideC.jpg">
+        <div class="slide-caption">
+          <h3>Held by Light</h3>
+          <p>Warm highlights • cinematic shadows • depth</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="images/slideD.jpg">
+        <div class="slide-caption">
+          <h3>Between Moments</h3>
+          <p>Muted reds • soft vignette • emotional pacing</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="nav prev prev-2">‹</button>
+    <button class="nav next next-2">›</button>
+
+    <div class="progress-bar">
+      <span class="progress progress-2"></span>
+    </div>
+  </div>
+  </section>
 
 <script>
 window.onload = () => {
@@ -367,6 +417,51 @@ window.onload = () => {
 
   showSlide(0);
 };
+  // ===== SECOND SLIDER =====
+const slider2 = document.querySelector('.slider-2');
+const slides2 = slider2.querySelectorAll('.slide');
+const progress2 = document.querySelector('.progress-2');
+const next2 = document.querySelector('.next-2');
+const prev2 = document.querySelector('.prev-2');
+
+let index2 = 0;
+let timer2;
+
+function showSlide2(i) {
+  slides2.forEach(s => s.classList.remove('active'));
+  slides2[i].classList.add('active');
+
+  progress2.style.width = '0%';
+  setTimeout(() => {
+    progress2.style.transition = 'width 3s linear';
+    progress2.style.width = '100%';
+  }, 50);
+}
+
+function nextSlide2() {
+  index2 = (index2 + 1) % slides2.length;
+  showSlide2(index2);
+}
+
+function prevSlide2() {
+  index2 = (index2 - 1 + slides2.length) % slides2.length;
+  showSlide2(index2);
+}
+
+function startSlider2() {
+  timer2 = setInterval(nextSlide2, 3000);
+}
+
+function resetSlider2() {
+  clearInterval(timer2);
+  startSlider2();
+}
+
+next2.onclick = () => { nextSlide2(); resetSlider2(); };
+prev2.onclick = () => { prevSlide2(); resetSlider2(); };
+
+showSlide2(index2);
+startSlider2();
 </script>
 
 </body>
