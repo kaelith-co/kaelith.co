@@ -2,447 +2,369 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kaelith</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kaelith — Visuals in Motion</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:#f1f3f4;
-  color:#222;
-  opacity:0;
-  transition:opacity .8s ease;
+/* ===== RESET ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f3f5;
+  color: #111;
 }
 
 /* ===== HEADER ===== */
-header{
-  text-align:center;
-  padding:56px 20px 32px;
+header {
+  text-align: center;
+  padding: 48px 16px;
 }
-.logo{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  margin-bottom:14px;
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
 }
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:36px;
+header p {
+  letter-spacing: 3px;
+  font-size: 12px;
+  opacity: 0.6;
 }
-header p{
-  font-size:13px;
-  letter-spacing:2px;
-  margin-top:6px;
-  color:#666;
+  .site-header {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 42px;
+  height: auto;
+  opacity: 0.9;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+}
+
+.site-header p {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #666;
 }
 
 /* ===== HERO ===== */
-.hero{
-  max-width:1100px;
-  margin:40px auto;
-  position:relative;
-  border-radius:24px;
-  overflow:hidden;
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
 }
-.hero img{
-  width:100%;
-  height:70vh;
-  object-fit:cover;
+.hero img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
 }
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.25),transparent);
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
 }
-.hero-text{
-  position:absolute;
-  bottom:40px;
-  left:40px;
-  z-index:2;
-  color:#fff;
-  font-family:'Playfair Display',serif;
-  font-size:28px;
-  max-width:70%;
+.hero-text {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  z-index: 2;
 }
-  /* ===== INTRO SECTION ===== */
-.intro {
+
+/* ===== INTRO SECTION ===== */
+.intro-bg {
   position: relative;
   max-width: 1100px;
   margin: 140px auto;
   border-radius: 28px;
   overflow: hidden;
 }
-
-/* Sky background */
-.intro-bg {
+.intro-bg img.bg {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+}
+.intro-bg::after {
+  content: "";
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.95);
-  z-index: 0;
+  background: rgba(240, 243, 245, 0.88);
 }
-
-/* Content layout */
-.intro-content {
-  position: relative;
-  z-index: 1;
+.intro-box {
+  position: absolute;
+  inset: 0;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 48px;
-  padding: 72px 64px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(6px);
+  gap: 60px;
+  padding: 80px;
+  align-items: center;
+  z-index: 2;
 }
-
-/* Text */
 .intro-text h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  margin-bottom: 16px;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
-
 .intro-text p {
   font-size: 16px;
   line-height: 1.8;
-  color: #444;
+  color: #555;
+  margin-bottom: 14px;
 }
-
 .soft-line {
-  opacity: 0.6;
-  margin-top: 12px;
+  opacity: 0.5;
 }
-
-/* Lampost image (NO CROP) */
 .intro-image img {
   width: 100%;
-  max-height: 360px;
-  object-fit: contain;
-  border-radius: 20px;
+  border-radius: 18px;
 }
 
-/* ===== MOBILE SAFE ===== */
+/* ===== STYLE STORY ===== */
+.style-story {
+  max-width: 1100px;
+  margin: 160px auto;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+}
+.style-story img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+.style-text {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* ===== SHARED SLIDER BASE ===== */
+.slider-wrap {
+  max-width: 1100px;
+  margin: 160px auto;
+  position: relative;
+}
+.slider-box {
+  position: relative;
+  height: 55vh;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #111;
+}
+.slide-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.slide-item.active { opacity: 1; }
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== CAPTION ===== */
+.caption {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  color: white;
+}
+.caption h3, .caption h4 {
+  font-family: 'Playfair Display', serif;
+}
+.caption p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-track {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: rgba(255,255,255,.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: white;
+}
+
+/* ===== NATURE SLIDER ===== */
+.slider-nature { background: #0f0f0f; }
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .intro-content {
+  .hero img { height: 55vh; }
+  .slider-box { height: 45vh; }
+  .hero-text { font-size: 22px; left: 24px; }
+  .intro-box {
     grid-template-columns: 1fr;
     padding: 48px 28px;
     gap: 32px;
   }
-
-  .intro-text h2 {
-    font-size: 28px;
-  }
-
-  .intro-image img {
-    max-height: 260px;
-  }
+  .intro-text h2 { font-size: 32px; }
 }
-/* ===== STORY SECTION ===== */
-.story {
-  position: relative;
-  max-width: 1100px;
-  margin: 160px auto;
-  border-radius: 24px;
-  overflow: hidden;
-}
-
-.story img {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
-  filter: brightness(0.9);
-}
-
-.story::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0)
-  );
-}
-
-.story-text {
-  position: absolute;
-  bottom: 48px;
-  left: 48px;
-  z-index: 2;
-  max-width: 70%;
-  font-family: 'Playfair Display', serif;
-  color: rgba(255,255,255,0.9);
-}
-
-.story-text h3 {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.story-text p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 10px;
-}
-
-.story-text .soft {
-  opacity: 0.6;
-  font-size: 16px;
-}
-/* ===== SLIDER SHARED ===== */
-.slider-section{
-  max-width:1100px;
-  margin:160px auto;
-}
-.slider-container{
-  position:relative;
-  border-radius:24px;
-  overflow:hidden;
-  background:#000;
-}
-.slider{
-  position:relative;
-  height:65vh;
-}
-.slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity 1s ease;
-}
-.slide.active{opacity:1}
-.slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-/* captions */
-.caption{
-  position:absolute;
-  bottom:40px;
-  left:40px;
-  color:rgba(255,255,255,.9);
-  font-family:'Playfair Display',serif;
-}
-.caption h3,.caption h4{
-  font-size:22px;
-}
-.caption p{
-  font-family:'Inter',sans-serif;
-  font-size:14px;
-  opacity:.7;
-  margin-top:6px;
-}
-
-/* progress bar */
-.progress-wrap{
-  position:absolute;
-  bottom:16px;
-  left:50%;
-  transform:translateX(-50%);
-  width:120px;
-  height:3px;
-  background:rgba(255,255,255,.3);
-  border-radius:2px;
-  overflow:hidden;
-}
-.progress{
-  width:0%;
-  height:100%;
-  background:#fff;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .hero img{height:55vh}
-  .hero-text{font-size:22px;left:24px;bottom:24px}
-  .slider{height:50vh}
-  .caption{left:24px;bottom:24px}
-}
-  @media (max-width: 768px) {
-  .story img {
-    height: 45vh;
-  }
-
-  .story-text {
-    left: 24px;
-    bottom: 24px;
-    max-width: 85%;
-  }
-
-  .story-text h3 {
-    font-size: 22px;
-  }
-
-  .story-text p {
-    font-size: 16px;
-  }
-    }
 </style>
 </head>
 
 <body>
 
-<header>
-  <img src="images/logo.png" class="logo">
-  <h1>Kaelith</h1>
-  <p>VISUALS IN MOTION</p>
+<header class="site-header">
+  <img src="images/logo.png" alt="Kaelith logo" class="logo">
+
+  <div class="header-text">
+    <h1>Kaelith</h1>
+    <p>VISUALS IN MOTION</p>
+  </div>
 </header>
 
 <section class="hero">
   <img src="images/hero.jpg">
-  <div class="hero-text">Stillness, before the world speaks.</div>
+  <div class="hero-text">Stillness, before the world moves.</div>
 </section>
-  <section class="intro">
-  <img src="images/bg.jpg" class="intro-bg" alt="Sky background">
 
-  <div class="intro-content">
+<section class="intro-bg">
+  <img src="images/bg.jpg" class="bg">
+  <div class="intro-box">
     <div class="intro-text">
       <h2>Hi, I’m Kaelith.</h2>
-      <p>
-        I work with visuals — shaping moments through color, pacing, and atmosphere.
-      </p>
-      <p class="soft-line">
-        Editing that feels intentional. Quiet. Human.
-      </p>
+      <p>I work with visuals — shaping moments through light and silence.</p>
+      <p>Editing that feels intentional. Quiet. Human.</p>
+      <p class="soft-line">I notice stillness.</p>
     </div>
-
     <div class="intro-image">
-      <img src="images/intro.jpg" alt="Lampost">
+      <img src="images/intro.jpg">
     </div>
-  </div>
-  </section>
-  <section class="story">
-  <img src="images/style.jpg" alt="Story image">
-
-  <div class="story-text">
-    <h3>Why I Create</h3>
-    <p>
-      I don’t chase perfection.<br>
-      I wait for moments to settle.
-    </p>
-    <p>
-      Light finds its way when nothing is forced.<br>
-      Silence becomes structure.
-    </p>
-    <p class="soft">
-      This is where my work begins.
-    </p>
-  </div>
-  </section>
-
-<!-- ===== SLIDER 1 ===== -->
-<section class="slider-section">
-  <div class="slider-container" data-slider>
-    <div class="slider">
-      <div class="slide active">
-        <img src="images/slide1.jpg">
-        <div class="caption">
-          <h3>Quiet strength.</h3>
-          <p>Light held gently.</p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/slide2.jpg">
-        <div class="caption">
-          <h3>Order in the quiet.</h3>
-          <p>Space left untouched.</p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/slide3.jpg">
-        <div class="caption">
-          <h3>Silence shaped.</h3>
-          <p>Letting frames breathe.</p>
-        </div>
-      </div>
-    </div>
-    <div class="progress-wrap"><div class="progress"></div></div>
   </div>
 </section>
 
-<!-- ===== SLIDER 2 ===== -->
-<section class="slider-section">
-  <div class="slider-container" data-slider>
-    <div class="slider">
-      <div class="slide active">
-        <img src="images/slideA.jpg">
-        <div class="caption">
-          <h4>Still Growing</h4>
-          <p>Natural tones · gentle grain · calm framing</p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/slideB.jpg">
-        <div class="caption">
-          <h4>Silence Shaped</h4>
-          <p>Muted contrast · slow exposure · breathing space</p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/slideC.jpg">
-        <div class="caption">
-          <h4>Quiet Bloom</h4>
-          <p>Soft focus · natural depth · restrained color</p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/slideD.jpg">
-        <div class="caption">
-          <h4>Held Light</h4>
-          <p>Subtle highlights · organic shadows · stillness</p>
-        </div>
+<section class="style-story">
+  <img src="images/style.jpg">
+  <div class="style-text">
+    I shoot for mood, not perfection.<br>
+    Soft light. Honest color.<br>
+    Time untouched.
+  </div>
+</section>
+
+<!-- SLIDER 1 -->
+<section class="slider-wrap">
+  <div class="slider-box" id="slider-one">
+    <div class="slide-item active">
+      <img src="images/slide1.jpg">
+      <div class="caption">
+        <h3>Quiet strength.</h3>
+        <p>Light held gently.</p>
       </div>
     </div>
-    <div class="progress-wrap"><div class="progress"></div></div>
+    <div class="slide-item">
+      <img src="images/slide2.jpg">
+      <div class="caption">
+        <h3>Order in the quiet.</h3>
+        <p>Space left untouched.</p>
+      </div>
+    </div>
+    <div class="slide-item">
+      <img src="images/slide3.jpg">
+      <div class="caption">
+        <h3>Silence shaped.</h3>
+        <p>Letting frames breathe.</p>
+      </div>
+    </div>
+    <div class="progress-track"><div class="progress-fill"></div></div>
+  </div>
+</section>
+
+<!-- SLIDER 2 -->
+<section class="slider-wrap">
+  <div class="slider-box slider-nature" id="slider-two">
+    <div class="slide-item active">
+      <img src="images/slideA.jpg">
+      <div class="caption">
+        <h4>Still Growing</h4>
+        <p>Natural tones · gentle grain · calm framing</p>
+      </div>
+    </div>
+    <div class="slide-item">
+      <img src="images/slideB.jpg">
+      <div class="caption">
+        <h4>Rooted Calm</h4>
+        <p>Muted greens · shallow depth · organic mood</p>
+      </div>
+    </div>
+    <div class="slide-item">
+      <img src="images/slideC.jpg">
+      <div class="caption">
+        <h4>Soft Bloom</h4>
+        <p>Diffused light · film softness · quiet presence</p>
+      </div>
+    </div>
+    <div class="slide-item">
+      <img src="images/slideD.jpg">
+      <div class="caption">
+        <h4>Held by Light</h4>
+        <p>Pastel warmth · still air · slow moment</p>
+      </div>
+    </div>
+    <div class="progress-track"><div class="progress-fill"></div></div>
   </div>
 </section>
 
 <script>
-const slides = document.querySelectorAll('.slide');
-const progress = document.querySelector('.progress');
+function cinematicSlider(rootId, duration = 3000) {
+  const root = document.getElementById(rootId);
+  const slides = root.querySelectorAll('.slide-item');
+  const bar = root.querySelector('.progress-fill');
+  let index = 0;
 
-let index = 0;
-const duration = 3000;
-let timer;
+  function show(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    requestAnimationFrame(() => {
+      bar.style.transition = `width ${duration}ms linear`;
+      bar.style.width = '100%';
+    });
+  }
 
-function animateProgress() {
-  progress.style.transition = 'none';
-  progress.style.width = '0%';
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    show(index);
+  }, duration);
 
-  // force reflow (THIS is the magic line)
-  progress.offsetHeight;
-
-  progress.style.transition = `width ${duration}ms linear`;
-  progress.style.width = '100%';
+  show(index);
 }
 
-function showSlide(i) {
-  slides.forEach(s => s.classList.remove('active'));
-  slides[i].classList.add('active');
-  animateProgress();
-}
-
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
-
-function startSlider() {
-  timer = setInterval(nextSlide, duration);
-}
-
-showSlide(index);
-startSlider();
+cinematicSlider('slider-one', 3000);
+cinematicSlider('slider-two', 3000);
 </script>
 
 </body>
-</html>
+    </html>
