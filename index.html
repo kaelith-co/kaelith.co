@@ -307,7 +307,44 @@ header p {
     max-width: 85%;
     font-size: 20px;
   }
+  
 }
+  /* ===== MOBILE INTRO FIX ===== */
+@media (max-width: 768px) {
+
+  .intro-bg {
+    margin: 80px auto;
+    border-radius: 20px;
+  }
+
+  .intro-bg img {
+    height: 60vh;
+    object-fit: cover;
+  }
+
+  .intro-box {
+    position: relative;
+    padding: 32px 20px;
+    background: rgba(240, 242, 245, 0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+  }
+
+  .intro-text h2 {
+    font-size: 28px;
+  }
+
+  .intro-text p {
+    font-size: 15px;
+    color: #444;
+  }
+
+  .intro-image img {
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+    }
 </style>
 </head>
 
