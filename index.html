@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Kaelith</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>Kaelith — Visuals in Motion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #f1f2f3;
+  --ink: #1f1f1f;
+  --soft: #6a6a6a;
+  --mist: rgba(245,246,247,0.88);
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  background: #eef0f2;
-  color: #2a2a2a;
-  line-height: 1.6;
+  background: var(--bg);
+  color: var(--ink);
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 1s ease;
 }
 
 /* ===== HEADER ===== */
 header {
   text-align: center;
-  padding: 56px 24px 32px;
+  padding: 56px 20px 40px;
 }
 
-.logo {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: #fff;
-  object-fit: contain;
-  margin-bottom: 16px;
-}
-
-h1 {
+header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 36px;
+  font-size: 38px;
 }
 
 header p {
+  margin-top: 8px;
   font-size: 13px;
   letter-spacing: 2px;
-  color: #666;
-  margin-top: 6px;
+  color: var(--soft);
 }
 
 /* ===== HERO ===== */
 .hero {
-  position: relative;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 40px auto;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow: hidden;
+  position: relative;
 }
 
 .hero img {
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   object-fit: cover;
-  filter: brightness(0.9) contrast(1.05);
+  filter: brightness(0.85);
 }
 
 .hero::after {
@@ -73,138 +71,107 @@ header p {
   background: linear-gradient(
     to top,
     rgba(0,0,0,0.55),
-    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.15),
     rgba(0,0,0,0)
   );
 }
 
 .hero-text {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
-  max-width: 70%;
+  bottom: 48px;
+  left: 48px;
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 30px;
   color: white;
+  max-width: 70%;
   z-index: 2;
 }
 
-/* ===== INTRO ===== */
-.intro-bg {
+/* ===== INTRO SKY ===== */
+.intro-sky {
   position: relative;
-  max-width: 1100px;
-  margin: 140px auto;
-  border-radius: 28px;
+  max-width: 1200px;
+  margin: 160px auto;
+  min-height: 80vh;
+  border-radius: 32px;
   overflow: hidden;
+  background: url("images/bg.jpg") center / cover no-repeat;
 }
 
-.intro-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.intro-box {
+.intro-sky::after {
+  content: "";
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  padding: 80px;
-  align-items: center;
+  background: var(--mist);
 }
 
-.intro-text {
+/* ===== INTRO CONTENT ===== */
+.intro-content {
+  position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 72px;
+  padding: 96px;
+  align-items: center;
 }
 
 .intro-text h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-size: 44px;
+  margin-bottom: 24px;
 }
 
 .intro-text p {
   font-size: 16px;
-  color: #444;
-  margin-bottom: 14px;
+  line-height: 1.85;
+  color: #555;
+  margin-bottom: 16px;
 }
 
-.soft-line {
-  font-size: 0.85rem;
+.intro-text .soft {
   opacity: 0.6;
+  font-size: 0.9rem;
 }
 
-.intro-image img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  border-radius: 20px;
+/* ===== LAMPPOST ===== */
+.lamp {
+  display: flex;
+  justify-content: center;
 }
 
-/* ===== STYLE STORY ===== */
-.style-story {
-  max-width: 1100px;
-  margin: 160px auto;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-}
-
-.style-story img {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
-  filter: brightness(0.88) contrast(1.05);
-}
-
-.style-story::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.25),
-    rgba(0,0,0,0)
-  );
-}
-
-.style-text {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  max-width: 70%;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: rgba(255,255,255,0.85);
+.lamp img {
+  width: 240px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 22px;
 }
 
 /* ===== SLIDER ===== */
 .slider-section {
-  max-width: 1100px;
-  margin: 160px auto;
+  max-width: 1200px;
+  margin: 180px auto;
   padding: 0 20px;
 }
 
-.slider-container {
+.slider-box {
   position: relative;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow: hidden;
-  background: #000;
+  background: black;
 }
 
 .slider {
   position: relative;
-  height: 65vh;
+  height: 70vh;
 }
 
 .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: scale(1.02);
-  transition: opacity 1s ease, transform 1.2s ease;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease, transform 1.4s ease;
 }
 
 .slide img {
@@ -218,51 +185,35 @@ header p {
   transform: scale(1);
 }
 
-.slide-caption {
+.caption {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 48px;
+  left: 48px;
   max-width: 70%;
   color: white;
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+  transform: translateY(14px);
+  transition: all 1s ease;
 }
 
-.slide.active .slide-caption {
+.slide.active .caption {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ===== CONTROLS ===== */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.25);
-  color: white;
+.caption h3 {
+  font-family: 'Playfair Display', serif;
   font-size: 28px;
-  cursor: pointer;
-  opacity: 0;
+  margin-bottom: 6px;
 }
 
-.slider-container:hover .nav {
-  opacity: 1;
-}
-
-.nav.prev { left: 20px; }
-.nav.next { right: 20px; }
-
-.progress-bar {
+/* ===== PROGRESS ===== */
+.progress-track {
   position: absolute;
-  bottom: 16px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 140px;
   height: 3px;
   background: rgba(255,255,255,0.3);
   border-radius: 2px;
@@ -273,7 +224,6 @@ header p {
   height: 100%;
   width: 0%;
   background: white;
-  transition: width 3s linear;
 }
 
 /* ===== REVEAL ===== */
@@ -290,205 +240,148 @@ header p {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .intro-box {
-    grid-template-columns: 1fr;
-    padding: 48px 28px;
-    gap: 32px;
+  .hero img {
+    height: 55vh;
   }
 
-  .intro-image img {
-    height: 420px;
-  }
-
-  .hero-text,
-  .style-text {
-    left: 20px;
+  .hero-text {
+    font-size: 22px;
+    left: 24px;
     bottom: 24px;
     max-width: 85%;
-    font-size: 20px;
-  }
-  
-}
-  /* ===== MOBILE INTRO FIX ===== */
-@media (max-width: 768px) {
-
-  .intro-bg {
-    margin: 80px auto;
-    border-radius: 20px;
   }
 
-  .intro-bg img {
-    height: 60vh;
-    object-fit: cover;
+  .intro-sky {
+    margin: 120px 16px;
+    min-height: 90vh;
   }
 
-  .intro-box {
-    position: relative;
-    padding: 32px 20px;
-    background: rgba(240, 242, 245, 0.85);
-    backdrop-filter: blur(6px);
-    border-radius: 16px;
+  .intro-content {
+    grid-template-columns: 1fr;
+    padding: 48px 28px;
+    gap: 40px;
+    text-align: left;
   }
 
-  .intro-text h2 {
-    font-size: 28px;
-  }
-
-  .intro-text p {
-    font-size: 15px;
-    color: #444;
-  }
-
-  .intro-image img {
-    height: 320px;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-    }
-  /* ===== MOBILE: LAMP POST IMAGE BEHAVES ===== */
-@media (max-width: 768px) {
-  .intro-image img {
-    width: 100%;
-    height: auto;          /* ← let it breathe */
-    max-height: 280px;     /* ← key line */
-    object-fit: contain;   /* ← no crop, full image */
-    display: block;
+  .lamp img {
+    width: 160px;
     margin: 0 auto;
   }
-}
-  .intro-image img {
-  opacity: 0.95;
+
+  .slider {
+    height: 55vh;
   }
+
+  .caption {
+    left: 24px;
+    bottom: 24px;
+    font-size: 14px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="images/logo.png" class="logo">
   <h1>Kaelith</h1>
   <p>VISUALS IN MOTION</p>
 </header>
 
-<section class="hero">
+<section class="hero reveal">
   <img src="images/hero.jpg">
   <div class="hero-text">Stillness, before the world moves again.</div>
 </section>
 
-<section class="intro-bg reveal">
-  <img src="images/bg.jpg">
-  <div class="intro-box">
+<section class="intro-sky reveal">
+  <div class="intro-content">
     <div class="intro-text">
       <h2>Hi, I'm Kaelith.</h2>
       <p>I work with visuals — shaping moments through color, pacing, and atmosphere.</p>
       <p>Editing that feels intentional. Quiet. Human.</p>
-      <p class="soft-line">I notice stillness.</p>
+      <p class="soft">I notice stillness.</p>
     </div>
-    <div class="intro-image">
+
+    <div class="lamp">
       <img src="images/intro.jpg">
     </div>
   </div>
 </section>
 
-<section class="style-story reveal">
-  <img src="images/style.jpg">
-  <div class="style-text">
-    I shoot for mood, not perfection.<br>
-    Soft light. Honest color. Time untouched.
-  </div>
-</section>
-
 <section class="slider-section reveal">
-  <div class="slider-container">
+  <div class="slider-box">
     <div class="slider">
       <div class="slide active">
         <img src="images/slide1.jpg">
-        <div class="slide-caption">
+        <div class="caption">
           <h3>Quiet strength.</h3>
           <p>Light held gently.</p>
         </div>
       </div>
+
       <div class="slide">
         <img src="images/slide2.jpg">
-        <div class="slide-caption">
+        <div class="caption">
           <h3>Order in the quiet.</h3>
           <p>Space left untouched.</p>
         </div>
       </div>
+
       <div class="slide">
         <img src="images/slide3.jpg">
-        <div class="slide-caption">
+        <div class="caption">
           <h3>Silence shaped.</h3>
           <p>Letting frames breathe.</p>
         </div>
       </div>
     </div>
 
-    <button class="nav prev">&#10094;</button>
-    <button class="nav next">&#10095;</button>
-
-    <div class="progress-bar">
-      <span class="progress"></span>
+    <div class="progress-track">
+      <div class="progress"></div>
     </div>
   </div>
 </section>
 
 <script>
 window.onload = () => {
-  document.body.style.opacity = '1';
+  document.body.style.opacity = "1";
 
-  const reveals = document.querySelectorAll('.reveal');
+  // Reveal
+  const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add("visible");
+    });
   }, { threshold: 0.2 });
   reveals.forEach(r => observer.observe(r));
 
-  const slides = document.querySelectorAll('.slide');
-  const progress = document.querySelector('.progress');
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
-
+  // Slider
+  const slides = document.querySelectorAll(".slide");
+  const progress = document.querySelector(".progress");
   let index = 0;
-  let interval;
+  const duration = 3000;
 
-  function showSlide(i) {
-    slides.forEach(s => s.classList.remove('active'));
-    slides[i].classList.add('active');
+  function show(i) {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[i].classList.add("active");
 
-    progress.style.transition = 'none';
-    progress.style.width = '0%';
+    progress.style.transition = "none";
+    progress.style.width = "0%";
+
     requestAnimationFrame(() => {
-      progress.style.transition = 'width 3s linear';
-      progress.style.width = '100%';
+      progress.style.transition = `width ${duration}ms linear`;
+      progress.style.width = "100%";
     });
   }
 
-  function nextSlide() {
+  setInterval(() => {
     index = (index + 1) % slides.length;
-    showSlide(index);
-  }
+    show(index);
+  }, duration);
 
-  function startAuto() {
-    interval = setInterval(nextSlide, 3000);
-  }
-
-  nextBtn.onclick = () => {
-    clearInterval(interval);
-    nextSlide();
-    startAuto();
-  };
-
-  prevBtn.onclick = () => {
-    clearInterval(interval);
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-    startAuto();
-  };
-
-  showSlide(index);
-  startAuto();
+  show(index);
 };
 </script>
 
 </body>
-  </html>
+</html>
