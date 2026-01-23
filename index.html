@@ -1,292 +1,185 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kaelith</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Kaelith</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      body {
-background:#f6f1e6;
-      }
-      font-family: 'Inter', sans-serif;
-      color: #111;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
+/* ===== BASE ===== */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #eceeef;
+  color: #2a2a2a;
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
 
-    /* ===== HEADER ===== */
-    header {
-      text-align: center;
-      padding: 48px 20px 24px;
-    }
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 56px 24px 32px;
+}
 
-    .logo {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: contain;
-      background: white;
-      margin-bottom: 16px;
-    }
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;
+  margin-bottom: 16px;
+}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-    }
-
-    header p {
-      margin-top: 6px;
-      letter-spacing: 2px;
-      font-size: 13px;
-      color: #666;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      max-width: 1100px;
-      margin: 40px auto;
-      border-radius: 24px;
-      overflow: hidden;
-    }
-
-    .hero img {
-      width: 100%;
-      height: 70vh;
-      object-fit: cover;
-      filter: brightness(0.9) contrast(1.05);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.15),
-        rgba(0,0,0,0)
-      );
-    }
-
-    .hero-text {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  z-index: 3;
-  color: white;
+h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  max-width: 70%;
-    }
-    .hero-text {
-  position: absolute;
-  z-index: 3;
+  font-size: 36px;
 }
 
-.hero::after {
-  z-index: 1;
+header p {
+  margin-top: 6px;
+  letter-spacing: 2px;
+  font-size: 13px;
+  color: #666;
 }
 
-.hero img {
-  position: relative;
-  z-index: 0;
-}
-
-    /* ===== FADED INTRO BACKGROUND ===== */
-    .intro-bg {
-      position: relative;
-      margin: 140px auto;
-      max-width: 1100px;
-      border-radius: 28px;
-      overflow: hidden;
-    }
-
-    .intro-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: auto;
-      filter: none;
-    }
-
-    .intro-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(246,242,234,0.88);
-    }
-
-    /* ===== INTRO BOX ===== */
-    .intro-box {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 60px;
-      padding: 80px;
-      align-items: center;
-    }
-
-    .intro-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-
-    .intro-text p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 14px;
-    }
-
-    .soft-line {
-      font-size: 0.85rem;
-      opacity: 0.5;
-      margin-top: 0.6rem;
-    }
+/* ===== HERO ===== */
 .hero {
   position: relative;
+  max-width: 1100px;
+  margin: 40px auto;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .hero img {
-  position: relative;
-  z-index: 0;
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.05);
 }
 
 .hero::after {
-  z-index: 1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0)
+  );
 }
 
 .hero-text {
   position: absolute;
+  bottom: 40px;
+  left: 40px;
+  max-width: 70%;
   z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #fff;
 }
+
+/* ===== INTRO ===== */
+.intro-bg {
+  position: relative;
+  max-width: 1100px;
+  margin: 140px auto;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.intro-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro-box {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  padding: 80px;
+  align-items: center;
+}
+
+.intro-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 14px;
+}
+
+.soft-line {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+}
+
 .intro-image img {
   width: 100%;
   height: 520px;
   object-fit: cover;
   border-radius: 20px;
 }
-    @media (max-width: 768px) {
-  .intro-image img {
-    max-height: 420px;
-  }
-    }
-    }
-    /* ===== FIX IMAGE WASH-OUT ON MOBILE ===== */
-@media (max-width: 768px) {
-  .intro-image img {
-    filter: none !important;
-    opacity: 1 !important;
-    mix-blend-mode: normal;
-  }
-}
-    @media (max-width: 768px) {
-  .intro {
-    position: relative;
-  }
 
-  .intro {
-  position: relative;
+/* ===== STYLE STORY ===== */
+.style-story {
   max-width: 1100px;
-  margin: 120px auto;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  padding: 0 20px;
-  align-items: center;
-  }
-  .intro-text,
-  .intro-image {
-    position: relative;
-    z-index: 1;
-  }
-    }
+  margin: 160px auto;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
 
-    /* ===== SCROLL REVEAL ===== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
+.style-story img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  filter: brightness(0.88) contrast(1.05);
+}
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.style-story::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0)
+  );
+}
 
-    /* ===== STYLE STORY ===== */
-    .style-story {
-      max-width: 1100px;
-      margin: 160px auto;
-      border-radius: 24px;
-      overflow: hidden;
-      position: relative;
-    }
+.style-text {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  max-width: 70%;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: rgba(255,255,255,0.85);
+}
 
-    .style-story img {
-      width: 100%;
-      height: 60vh;
-      object-fit: cover;
-      filter: brightness(0.88) contrast(1.05);
-    }
-
-    .style-story::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0)
-      );
-    }
-
-    .style-text {
-      position: absolute;
-      bottom: 40px;
-      left: 40px;
-      color: rgba(255,255,255,0.75);
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      max-width: 70%;
-    }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 768px) {
-      .intro-box {
-        grid-template-columns: 1fr;
-        padding: 48px 28px;
-        gap: 32px;
-      }
-
-      .intro-image img {
-        height: 420px;
-      }
-
-      .hero-text,
-      .style-text {
-        left: 20px;
-        bottom: 24px;
-        font-size: 20px;
-        max-width: 85%;
-      }
-    }
-    /* ===== SLIDER ===== */
+/* ===== SLIDER ===== */
 .slider-section {
   max-width: 1100px;
   margin: 160px auto;
@@ -329,7 +222,7 @@ background:#f6f1e6;
   bottom: 40px;
   left: 40px;
   max-width: 70%;
-  color: white;
+  color: #fff;
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
@@ -340,7 +233,16 @@ background:#f6f1e6;
   transform: translateY(0);
 }
 
-/* Controls */
+.slide-caption h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+}
+
+.slide-caption p {
+  opacity: 0.8;
+}
+
+/* ===== CONTROLS ===== */
 .nav {
   position: absolute;
   top: 50%;
@@ -350,7 +252,7 @@ background:#f6f1e6;
   border-radius: 50%;
   border: none;
   background: rgba(255,255,255,0.25);
-  color: white;
+  color: #fff;
   font-size: 28px;
   cursor: pointer;
   opacity: 0;
@@ -379,9 +281,42 @@ background:#f6f1e6;
 .progress {
   height: 100%;
   width: 0%;
-  background: white;
+  background: #fff;
 }
-  </style>
+
+/* ===== REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .intro-box {
+    grid-template-columns: 1fr;
+    padding: 48px 28px;
+    gap: 32px;
+  }
+
+  .intro-image img {
+    height: 420px;
+  }
+
+  .hero-text,
+  .style-text {
+    left: 20px;
+    bottom: 24px;
+    max-width: 85%;
+    font-size: 20px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -401,7 +336,7 @@ background:#f6f1e6;
   <img src="images/hero.jpg">
   <div class="intro-box">
     <div class="intro-text">
-      <h2>Hi, I’m Kaelith.</h2>
+      <h2>Hi, I'm Kaelith.</h2>
       <p>I work with visuals — shaping moments through color, pacing, and atmosphere.</p>
       <p>Editing that feels intentional. Quiet. Human.</p>
       <p class="soft-line">I notice stillness.</p>
@@ -419,7 +354,8 @@ background:#f6f1e6;
     Soft light. Honest color. Time untouched.
   </div>
 </section>
-  <section class="slider-section reveal">
+
+<section class="slider-section reveal">
   <div class="slider-container">
     <div class="slider">
       <div class="slide active">
@@ -429,7 +365,6 @@ background:#f6f1e6;
           <p>Light held gently.</p>
         </div>
       </div>
-
       <div class="slide">
         <img src="images/slide2.jpg">
         <div class="slide-caption">
@@ -437,7 +372,6 @@ background:#f6f1e6;
           <p>Space left untouched.</p>
         </div>
       </div>
-
       <div class="slide">
         <img src="images/slide3.jpg">
         <div class="slide-caption">
@@ -447,76 +381,50 @@ background:#f6f1e6;
       </div>
     </div>
 
-    <button class="nav prev">‹</button>
-    <button class="nav next">›</button>
+    <button class="nav prev">&#10094;</button>
+    <button class="nav next">&#10095;</button>
 
     <div class="progress-bar">
       <span class="progress"></span>
     </div>
   </div>
-  </section>
+</section>
 
 <script>
-  window.onload = () => {
-    document.body.style.opacity = '1';
+window.onload = () => {
+  document.body.style.opacity = '1';
 
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  reveals.forEach(r => observer.observe(r));
 
-    reveals.forEach(r => observer.observe(r));
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.querySelector('.progress');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+    progress.style.width = ((i + 1) / slides.length) * 100 + '%';
+  }
+
+  nextBtn.onclick = () => {
+    index = (index + 1) % slides.length;
+    showSlide(index);
   };
 
-const slides = document.querySelectorAll('.slide');
-const progress = document.querySelector('.progress');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-
-let index = 0;
-let interval;
-
-function showSlide(i) {
-  slides.forEach(s => s.classList.remove('active'));
-  slides[i].classList.add('active');
-  resetProgress();
-}
-
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
-
-function prevSlide() {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-}
-
-function resetProgress() {
-  progress.style.transition = 'none';
-  progress.style.width = '0%';
-  requestAnimationFrame(() => {
-    progress.style.transition = 'width 3s linear';
-    progress.style.width = '100%';
-  });
-}
-
-function startAuto() {
-  clearInterval(interval);
-  resetProgress();
-  interval = setInterval(nextSlide, 3000);
-}
-
-nextBtn.onclick = () => { nextSlide(); startAuto(); };
-prevBtn.onclick = () => { prevSlide(); startAuto(); };
-
-showSlide(index);
-startAuto();
+  prevBtn.onclick = () => {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  };
+};
 </script>
 
 </body>
-  </html>
+</html>
