@@ -18,7 +18,7 @@
 
     body {
       body {
-  background: #f3efe7;
+background: #efeee6;
       }
       font-family: 'Inter', sans-serif;
       color: #111;
@@ -199,15 +199,16 @@
     position: relative;
   }
 
-  .intro::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(246, 242, 234, 0.65);
-    z-index: 0;
-    border-radius: 24px;
+  .intro {
+  position: relative;
+  max-width: 1100px;
+  margin: 120px auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  padding: 0 20px;
+  align-items: center;
   }
-
   .intro-text,
   .intro-image {
     position: relative;
