@@ -44,12 +44,21 @@ header p {
   align-items: center;
   gap: 16px;
 }
-
 .logo {
-  height: 28px;
-  width: auto;
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  object-fit: cover;
+
   display: block;
 }
+  .logo-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  }
 
 .site-header h1 {
   margin: 0;
@@ -253,7 +262,9 @@ header p {
 </header>
 
 <section class="hero">
-  <img src="images/hero.jpg">
+<div class="logo-wrap">
+  <img src="images/logo.jpg" class="logo">
+</div>
   <div class="hero-text">Stillness, before the world moves.</div>
 </section>
 
