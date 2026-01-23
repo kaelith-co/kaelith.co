@@ -104,14 +104,17 @@ header p {
   inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
 }
+.hero {
+  position: relative;
+}
+
 .hero-text {
   position: absolute;
-  bottom: 40px;
-  left: 40px;
+  bottom: 24px;
+  left: 24px;
   color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  z-index: 2;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 /* ===== INTRO SECTION ===== */
@@ -265,17 +268,16 @@ header p {
 <body>
 
 <header class="site-header">
-<div class="logo-wrap">
-  <img src="images/logo.png" alt="Kaelith logo">
-</div>
+  <div class="logo-wrap">
+    <img src="images/logo.png" alt="Kaelith logo">
+  </div>
   <div class="header-text">
     <h1>Kaelith</h1>
     <p>VISUALS IN MOTION</p>
   </div>
 </header>
-
 <section class="hero">
-  <img src="images/hero.jpg" alt="Hero image">
+ <img src="images/hero.jpg" alt="Hero image" class="hero-img">
 
   <div class="hero-text">
     Stillness, before the world moves.
