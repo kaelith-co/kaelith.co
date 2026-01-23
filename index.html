@@ -8,17 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
 body {
   font-family: 'Inter', sans-serif;
-  background: #eceeef;
+  background: #eef0f2;
   color: #2a2a2a;
   line-height: 1.6;
   opacity: 0;
@@ -35,8 +33,8 @@ header {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  object-fit: contain;
   background: #fff;
+  object-fit: contain;
   margin-bottom: 16px;
 }
 
@@ -46,10 +44,10 @@ h1 {
 }
 
 header p {
-  margin-top: 6px;
-  letter-spacing: 2px;
   font-size: 13px;
+  letter-spacing: 2px;
   color: #666;
+  margin-top: 6px;
 }
 
 /* ===== HERO ===== */
@@ -85,10 +83,10 @@ header p {
   bottom: 40px;
   left: 40px;
   max-width: 70%;
-  z-index: 2;
   font-family: 'Playfair Display', serif;
   font-size: 28px;
-  color: #fff;
+  color: white;
+  z-index: 2;
 }
 
 /* ===== INTRO ===== */
@@ -116,6 +114,10 @@ header p {
   align-items: center;
 }
 
+.intro-text {
+  z-index: 2;
+}
+
 .intro-text h2 {
   font-family: 'Playfair Display', serif;
   font-size: 40px;
@@ -131,7 +133,6 @@ header p {
 .soft-line {
   font-size: 0.85rem;
   opacity: 0.6;
-  margin-top: 0.6rem;
 }
 
 .intro-image img {
@@ -222,7 +223,7 @@ header p {
   bottom: 40px;
   left: 40px;
   max-width: 70%;
-  color: #fff;
+  color: white;
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
@@ -231,15 +232,6 @@ header p {
 .slide.active .slide-caption {
   opacity: 1;
   transform: translateY(0);
-}
-
-.slide-caption h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-}
-
-.slide-caption p {
-  opacity: 0.8;
 }
 
 /* ===== CONTROLS ===== */
@@ -252,11 +244,10 @@ header p {
   border-radius: 50%;
   border: none;
   background: rgba(255,255,255,0.25);
-  color: #fff;
+  color: white;
   font-size: 28px;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .slider-container:hover .nav {
@@ -281,7 +272,8 @@ header p {
 .progress {
   height: 100%;
   width: 0%;
-  background: #fff;
+  background: white;
+  transition: width 3s linear;
 }
 
 /* ===== REVEAL ===== */
@@ -333,7 +325,7 @@ header p {
 </section>
 
 <section class="intro-bg reveal">
-  <img src="images/hero.jpg">
+  <img src="images/bg.jpg">
   <div class="intro-box">
     <div class="intro-text">
       <h2>Hi, I'm Kaelith.</h2>
@@ -396,9 +388,7 @@ window.onload = () => {
 
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
+    entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
   }, { threshold: 0.2 });
   reveals.forEach(r => observer.observe(r));
 
@@ -406,25 +396,48 @@ window.onload = () => {
   const progress = document.querySelector('.progress');
   const nextBtn = document.querySelector('.next');
   const prevBtn = document.querySelector('.prev');
+
   let index = 0;
+  let interval;
 
   function showSlide(i) {
     slides.forEach(s => s.classList.remove('active'));
     slides[i].classList.add('active');
-    progress.style.width = ((i + 1) / slides.length) * 100 + '%';
+
+    progress.style.transition = 'none';
+    progress.style.width = '0%';
+    requestAnimationFrame(() => {
+      progress.style.transition = 'width 3s linear';
+      progress.style.width = '100%';
+    });
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function startAuto() {
+    interval = setInterval(nextSlide, 3000);
   }
 
   nextBtn.onclick = () => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
+    clearInterval(interval);
+    nextSlide();
+    startAuto();
   };
 
   prevBtn.onclick = () => {
+    clearInterval(interval);
     index = (index - 1 + slides.length) % slides.length;
     showSlide(index);
+    startAuto();
   };
+
+  showSlide(index);
+  startAuto();
 };
 </script>
 
 </body>
-</html>
+  </html>
