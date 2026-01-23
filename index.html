@@ -407,34 +407,41 @@ header p{
 </section>
 
 <script>
-window.onload = () => {
-  document.body.style.opacity = 1;
+const slides = document.querySelectorAll('.slide');
+const progress = document.querySelector('.progress');
 
-  document.querySelectorAll('[data-slider]').forEach(sliderRoot => {
-    const slides = sliderRoot.querySelectorAll('.slide');
-    const progress = sliderRoot.querySelector('.progress');
-    let index = 0;
-    const duration = 3000;
+let index = 0;
+const duration = 3000;
+let timer;
 
-    function showSlide(i){
-      slides.forEach(s => s.classList.remove('active'));
-      slides[i].classList.add('active');
+function animateProgress() {
+  progress.style.transition = 'none';
+  progress.style.width = '0%';
 
-      progress.style.transition = 'none';
-      progress.style.width = '0%';
-      requestAnimationFrame(()=>{
-        progress.style.transition = `width ${duration}ms linear`;
-        progress.style.width = '100%';
-      });
-    }
+  // force reflow (THIS is the magic line)
+  progress.offsetHeight;
 
-    showSlide(index);
-    setInterval(()=>{
-      index = (index + 1) % slides.length;
-      showSlide(index);
-    }, duration);
-  });
-};
+  progress.style.transition = `width ${duration}ms linear`;
+  progress.style.width = '100%';
+}
+
+function showSlide(i) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[i].classList.add('active');
+  animateProgress();
+}
+
+function nextSlide() {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}
+
+function startSlider() {
+  timer = setInterval(nextSlide, duration);
+}
+
+showSlide(index);
+startSlider();
 </script>
 
 </body>
