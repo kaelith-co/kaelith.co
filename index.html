@@ -464,6 +464,26 @@ header p {
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
+  /* ===== SLIDER ===== */
+.slider-wrap {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.slider-box {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.8s ease-in-out;
+  }
 </style>
 </head>
 
@@ -529,30 +549,19 @@ header p {
       based on the work, not fixed packages.
     </p>
 
-    <p class="contact-text">
-  Contact via Instagram or WhatsApp using the button above.
-    </p>
   </div>
   </section>
-  <!-- Contact Overlay -->
-<div class="contact-overlay" id="contactOverlay"></div>
-
-<!-- Contact Popup -->
-<div class="contact-popup" id="contactPopup">
-  <button class="close-btn" id="closeContact">×</button>
+  <!-- SLIDER -->
+<section class="slider-wrap">
+  <div class="slider-box">
+    <img id="sliderImage" src="images/slide1.jpg" alt="Kaelith work">
+  </div>
+</section>
 
   <h2>Let’s talk</h2>
   <p>Photography · Video · Color Grading</p>
 
-  <div class="contact-icons">
-    <a href="https://www.instagram.com/kaelith.co/" target="_blank" aria-label="Instagram">
-      <img src="images/icons/instagram.svg" alt="Instagram">
-    </a>
-
-    <a href="https://wa.me/918628792711" target="_blank" aria-label="WhatsApp">
-      <img src="images/icons/whatsapp.svg" alt="WhatsApp">
-    </a>
-  </div>
+  
 </div>
 
 <section class="style-story">
@@ -724,6 +733,26 @@ cinematicSlider('slider-two', 3000);
   contactBtn.addEventListener("click", openContact);
   closeBtn.addEventListener("click", closeContact);
   overlay.addEventListener("click", closeContact);
+  </script>
+  <script>
+  const slides = [
+    "images/slide1.jpg",
+    "images/slide2.jpg",
+    "images/slide3.jpg"
+  ];
+
+  let currentSlide = 0;
+  const sliderImage = document.getElementById("sliderImage");
+
+  setInterval(() => {
+    sliderImage.style.opacity = 0;
+
+    setTimeout(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      sliderImage.src = slides[currentSlide];
+      sliderImage.style.opacity = 1;
+    }, 500);
+  }, 2000);
   </script>
 </body>
     </html>
