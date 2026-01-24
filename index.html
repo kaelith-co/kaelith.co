@@ -340,7 +340,6 @@ header p {
   background-image: url("images/slider/slide1.jpg"); /* ← ADD THIS */
   background-size: cover;
   background-position: center;
-  transition: background-image 1.2s ease-in-out;
   display: flex;
   align-items: center;
   }
@@ -713,6 +712,7 @@ cinematicSlider('slider-two', 3000);
   </script>
   <script>
   const workSlider = document.querySelector(".work-slider");
+    if (!workSlider) return;
 
   const workSlides = [
     "images/slider/slide1.jpg",
@@ -722,10 +722,13 @@ cinematicSlider('slider-two', 3000);
 
   let workIndex = 0;
 
-  setInterval(() => {
-    workIndex = (workIndex + 1) % workSlides.length;
-    workSlider.style.backgroundImage = `url('${workSlides[workIndex]}')`;
-  }, 3500);
+workSlider.style.backgroundImage = `url(${workSlides[0]})`;
+
+
+setInterval(() => {
+  workIndex = (workIndex + 1) % workSlides.length;
+  workSlider.style.backgroundImage = `url(${workSlides[workIndex]})`;
+}, 3500);
   </script>
 </body>
 </html>
