@@ -337,19 +337,25 @@ header p {
   .work-slider {
   position: relative;
   min-height: 80vh;
+  background-image: url("images/slider/1.jpg"); /* ← ADD THIS */
   background-size: cover;
   background-position: center;
   transition: background-image 1.2s ease-in-out;
   display: flex;
   align-items: center;
-}
+  }
+
 
 .slider-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
+  background: linear-gradient(
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.55)
+  );
+  z-index: 1;
 }
+
 
 .work-content {
   position: relative;
@@ -704,6 +710,22 @@ cinematicSlider('slider-two', 3000);
       overlay.classList.remove("show");
     });
   }
+  </script>
+  <script>
+  const workSlider = document.querySelector(".work-slider");
+
+  const workSlides = [
+    "images/slider/1.jpg",
+    "images/slider/2.jpg",
+    "images/slider/3.jpg"
+  ];
+
+  let workIndex = 0;
+
+  setInterval(() => {
+    workIndex = (workIndex + 1) % workSlides.length;
+    workSlider.style.backgroundImage = `url('${workSlides[workIndex]}')`;
+  }, 3500);
   </script>
 </body>
 </html>
