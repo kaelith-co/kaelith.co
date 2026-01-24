@@ -623,26 +623,7 @@ cinematicSlider('slider-two', 3000);
     popup.style.display = "none";
   });
   </script>
-<script>
-  const sliderImages = [
-    "images/slider/1.jpg",
-    "images/slider/2.jpg",
-    "images/slider/3.jpg"
-  ];
 
-  let currentIndex = 0;
-  const sliderSection = document.querySelector(".work-slider");
-
-  function changeSlide() {
-    sliderSection.style.backgroundImage =
-      `url(${sliderImages[currentIndex]})`;
-
-    currentIndex = (currentIndex + 1) % sliderImages.length;
-  }
-
-  changeSlide(); // first image
-  setInterval(changeSlide, 2000);
-</script>
   <script>
   const contactBtn = document.getElementById("contactToggle");
   const popup = document.getElementById("contactPopup");
