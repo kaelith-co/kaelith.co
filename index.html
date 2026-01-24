@@ -337,10 +337,7 @@ header p {
   .work-slider {
   position: relative;
   height: 80vh;
-  background-image: url("/images/slider/slide1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url("images/slider/slide1.jpg") center / cover no-repeat;
   display: flex;
   align-items: center;
   }
@@ -722,16 +719,12 @@ cinematicSlider('slider-two', 3000);
 
   let workIndex = 0;
 
-  // set first image immediately
   workSlider.style.backgroundImage = `url(${workSlides[0]})`;
-  workSlider.style.backgroundSize = "cover";
-  workSlider.style.backgroundPosition = "center";
-  workSlider.style.backgroundRepeat = "no-repeat";
 
-  // change image every 3.5s
   setInterval(() => {
     workIndex = (workIndex + 1) % workSlides.length;
-    workSlider.style.backgroundImage = `url(${workSlides[workIndex]})`;
+    workSlider.style.backgroundImage =
+      `url(${workSlides[workIndex]})`;
   }, 3500);
   </script>
 </body>
