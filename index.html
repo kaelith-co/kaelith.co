@@ -334,6 +334,136 @@ header p {
   height: auto;
   display: block;
   }
+  .work-slider {
+  position: relative;
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.slider-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.work-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 48px;
+  color: #fff;
+}
+
+.work-content h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.work-content p {
+  line-height: 1.6;
+  margin-bottom: 14px;
+  color: #ddd;
+}
+
+.price-note {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.work-content .contact-btn {
+  margin-top: 20px;
+  }
+  /* ===== CONTACT POPUP ===== */
+
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 99;
+}
+
+.contact-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(20,20,20,0.9);
+  color: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  width: 280px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 100;
+}
+
+.contact-popup h2 {
+  margin-bottom: 6px;
+  font-size: 22px;
+}
+
+.contact-popup p {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.contact-icons img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+/* Active state */
+.contact-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contact-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
 </style>
 </head>
 
@@ -378,6 +508,52 @@ header p {
     </div>
   </div>
 </section>
+  <section class="work-slider">
+  <div class="slider-overlay"></div>
+
+  <div class="work-content">
+    <h2>What I Do</h2>
+
+    <p>
+      I work with photography, video editing, and color grading.
+      My focus is creating visuals that feel intentional, quiet, and human.
+    </p>
+
+    <p>
+      I offer shoots, edits, and custom visual work for individuals,
+      brands, and small businesses.
+    </p>
+
+    <p class="price-note">
+      Pricing is flexible and discussed on the spot —
+      based on the work, not fixed packages.
+    </p>
+
+    <p class="contact-text">
+  Contact via Instagram or WhatsApp using the button above.
+    </p>
+  </div>
+  </section>
+  <!-- Contact Overlay -->
+<div class="contact-overlay" id="contactOverlay"></div>
+
+<!-- Contact Popup -->
+<div class="contact-popup" id="contactPopup">
+  <button class="close-btn" id="closeContact">×</button>
+
+  <h2>Let’s talk</h2>
+  <p>Photography · Video · Color Grading</p>
+
+  <div class="contact-icons">
+    <a href="https://www.instagram.com/kaelith.co/" target="_blank" aria-label="Instagram">
+      <img src="images/icons/instagram.svg" alt="Instagram">
+    </a>
+
+    <a href="https://wa.me/918628792711" target="_blank" aria-label="WhatsApp">
+      <img src="images/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+  </div>
+</div>
 
 <section class="style-story">
   <img src="images/style.jpg">
@@ -509,6 +685,45 @@ cinematicSlider('slider-two', 3000);
     popup.style.display = "none";
   });
   </script>
+<script>
+  const sliderImages = [
+    "images/slider/1.jpg",
+    "images/slider/2.jpg",
+    "images/slider/3.jpg"
+  ];
 
+  let currentIndex = 0;
+  const sliderSection = document.querySelector(".work-slider");
+
+  function changeSlide() {
+    sliderSection.style.backgroundImage =
+      `url(${sliderImages[currentIndex]})`;
+
+    currentIndex = (currentIndex + 1) % sliderImages.length;
+  }
+
+  changeSlide(); // first image
+  setInterval(changeSlide, 2000);
+</script>
+  <script>
+  const contactBtn = document.getElementById("contactToggle");
+  const popup = document.getElementById("contactPopup");
+  const overlay = document.getElementById("contactOverlay");
+  const closeBtn = document.getElementById("closeContact");
+
+  function openContact() {
+    popup.classList.add("active");
+    overlay.classList.add("active");
+  }
+
+  function closeContact() {
+    popup.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
+  contactBtn.addEventListener("click", openContact);
+  closeBtn.addEventListener("click", closeContact);
+  overlay.addEventListener("click", closeContact);
+  </script>
 </body>
     </html>
