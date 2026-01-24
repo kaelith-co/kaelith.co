@@ -1,562 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Open Graph / Social Preview -->
-<meta property="og:title" content="Kaelith — Visuals in Motion" />
-<meta property="og:description" content="Cinematic photography, color grading & creative visuals by Kaelith." />
-<meta property="og:image" content="https://kaelith-co.github.io/kaelith.co/assets/preview.jpg" />
-<meta property="og:url" content="https://kaelith-co.github.io/kaelith.co/" />
-<meta property="og:type" content="website" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Twitter / X preview -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Kaelith — Visuals in Motion" />
-<meta name="twitter:description" content="Photography, editing & cinematic visuals." />
-<meta name="twitter:image" content="https://kaelith-co.github.io/kaelith.co/assets/preview.jpg" />
-<meta charset="UTF-8" />
-  <meta name="google-site-verification" content="6U5DY4a1CL-h2pMKdIPNVikvsP22CFYgc78HRuIAOl8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="images/logo.png" type="image/png">
-<title>Kaelith — Visuals in Motion| Photography & Editing</title>
-<meta name="description" content="Kaelith is a visual artist working with photography, motion, and color grading. Official portfolio and contact." />
+<title>Kaelith — Visuals in Motion</title>
+<meta name="description" content="Cinematic photography, editing & color grading by Kaelith.">
+
+<!-- Social Preview -->
+<meta property="og:title" content="Kaelith — Visuals in Motion">
+<meta property="og:description" content="Photography · Editing · Color Grading">
+<meta property="og:image" content="https://kaelith-co.github.io/kaelith.co/assets/preview.jpg">
+<meta property="og:url" content="https://kaelith-co.github.io/kaelith.co/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="images/logo.png">
+
 <style>
-/* ===== RESET ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f3f5;
-  color: #111;
+  font-family: Inter, sans-serif;
+  background:#f4f3f5;
+  color:#111;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .site-header {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 24px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
-  text-align: center;
-  position: relative; /* 👈 ADD THIS */
-
+  max-width:1100px;
+  margin:32px auto;
+  text-align:center;
+  position:relative;
 }
-  .contact-btn {
-  position: absolute;
-  top: 16px;
-  right: 24px;
-
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 500;
-
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-
-  cursor: pointer;
-  transition: all 0.2s ease;
+.logo-wrap {
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:0 auto 8px;
 }
-
-.contact-btn:hover {
-  background: #333;
-  transform: translateY(-1px);
-}
-  .contact-popup {
-  position: absolute;
-  top: 52px;
-  right: 24px;
-
-  background: #fff;
-  border-radius: 12px;
-  padding: 8px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-
-  z-index: 10;
-}
-
-.contact-popup a {
-  text-decoration: none;
-  color: #111;
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background 0.2s ease;
-}
-
-.contact-popup a:hover {
-  background: #f2f2f2;
-}
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-}
-header p {
-  letter-spacing: 3px;
-  font-size: 12px;
-  opacity: 0.6;
-}
- .site-header {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 28px;
-
-  display: flex;
-  flex-direction: column;   /* 👈 THIS IS THE KEY */
-  align-items: center;
-  text-align: center;
-  gap: 8px;
- }
-
-  .logo-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  overflow: hidden;
-
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.12);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-  .logo-wrap {
-  margin-bottom: 4px;
-  }
-
-.logo-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
+.logo-wrap img { width:100%; height:100%; object-fit:contain; }
 .site-header h1 {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-family:Playfair Display, serif;
+  font-size:22px;
 }
-
 .site-header p {
-  margin: 0;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #666;
+  font-size:12px;
+  letter-spacing:2px;
+  color:#666;
 }
 
-/* ===== HERO ===== */
+/* CONTACT */
+.contact-btn {
+  position:absolute;
+  top:12px;
+  right:24px;
+  background:#111;
+  color:#fff;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+}
+.contact-popup {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+.contact-popup.active {
+  opacity:1;
+  pointer-events:auto;
+}
+.contact-box {
+  background:#111;
+  padding:32px;
+  border-radius:16px;
+  text-align:center;
+}
+.contact-box a {
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin:12px 0;
+}
+
+/* HERO */
 .hero {
-  max-width: 1100px;
-  margin: auto;
-  border-radius: 28px;
-  overflow: hidden;
-  position: relative;
+  max-width:1100px;
+  margin:auto;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
 }
 .hero img {
-  width: 100%;
-  height: 70vh;
-  object-fit: cover;
+  width:100%;
+  height:70vh;
+  object-fit:cover;
 }
 .hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.6), transparent);
 }
-.hero {
-  position: relative;
-}
-
 .hero-text {
-  position: absolute;
-  bottom: 48px;
-  left: 48px;
-  color: white;
-  font-size: 28px;
-  letter-spacing: 2px;
+  position:absolute;
+  bottom:40px;
+  left:40px;
+  color:#fff;
+  font-size:26px;
 }
 
-/* ===== INTRO SECTION ===== */
+/* INTRO */
 .intro-bg {
-  position: relative;
-  max-width: 1100px;
-  margin: 140px auto;
-  border-radius: 28px;
-  overflow: hidden;
+  max-width:1100px;
+  margin:140px auto;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
 }
 .intro-bg img.bg {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
+  width:100%;
+  height:80vh;
+  object-fit:cover;
 }
 .intro-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(240, 243, 245, 0.88);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(240,243,245,.88);
 }
 .intro-box {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  padding: 80px;
-  align-items: center;
-  z-index: 2;
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:60px;
+  padding:80px;
 }
 .intro-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-family:Playfair Display, serif;
+  font-size:40px;
+  margin-bottom:20px;
 }
-.intro-text p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 14px;
-}
-.soft-line {
-  opacity: 0.5;
-}
-.intro-image img {
-  width: 100%;
-  border-radius: 18px;
-}
+.intro-text p { color:#555; line-height:1.7; }
+.intro-image img { width:100%; border-radius:18px; }
 
-/* ===== STYLE STORY ===== */
+/* WORK SLIDER (FIXED) */
+.work-slider {
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background-image:url("images/slider/1.jpg");
+  background-size:cover;
+  background-position:center;
+  transition:background-image 1.2s ease-in-out;
+}
+.work-overlay {
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
+.work-content {
+  position:relative;
+  z-index:2;
+  color:#fff;
+  max-width:700px;
+  padding:48px;
+}
+.work-content h2 { font-size:32px; margin-bottom:16px; }
+.work-content p { color:#ddd; margin-bottom:14px; }
+
+/* STYLE STORY */
 .style-story {
-  max-width: 1100px;
-  margin: 160px auto;
-  border-radius: 28px;
-  overflow: hidden;
-  position: relative;
+  max-width:1100px;
+  margin:160px auto;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
 }
 .style-story img {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
+  width:100%;
+  height:60vh;
+  object-fit:cover;
 }
 .style-text {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  line-height: 1.6;
+  position:absolute;
+  bottom:32px;
+  left:32px;
+  color:#fff;
+  font-family:Playfair Display, serif;
+  font-size:22px;
 }
 
-/* ===== SHARED SLIDER BASE ===== */
+/* IMAGE SLIDER */
 .slider-wrap {
-  max-width: 1100px;
-  margin: 160px auto;
-  position: relative;
+  max-width:1100px;
+  margin:160px auto;
 }
 .slider-box {
-  position: relative;
-  height: 55vh;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #111;
+  height:55vh;
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
 }
-.slide-item {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
+.slide {
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1s ease;
 }
-.slide-item.active { opacity: 1; }
-.slide-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ===== CAPTION ===== */
-.caption {
-  position: absolute;
-  bottom: 32px;
-  left: 32px;
-  color: white;
-}
-.caption h3, .caption h4 {
-  font-family: 'Playfair Display', serif;
-}
-.caption p {
-  font-size: 14px;
-  opacity: 0.8;
+.slide.active { opacity:1; }
+.slide img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-/* ===== PROGRESS BAR ===== */
-.progress-track {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 3px;
-  background: rgba(255,255,255,.3);
-  border-radius: 2px;
-  overflow: hidden;
+/* MOBILE */
+@media(max-width:768px){
+  .hero img { height:55vh; }
+  .intro-box { grid-template-columns:1fr; padding:48px; }
+  .intro-text h2 { font-size:32px; }
 }
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background: white;
-}
-
-/* ===== NATURE SLIDER ===== */
-.slider-nature { background: #0f0f0f; }
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-  .hero img { height: 55vh; }
-  .slider-box { height: 45vh; }
-  .hero-text { font-size: 22px; left: 24px; }
-  .intro-box {
-    grid-template-columns: 1fr;
-    padding: 48px 28px;
-    gap: 32px;
-  }
-  .intro-text h2 { font-size: 32px; }
-}
-  img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  }
-  .work-slider {
-  position: relative;
-  min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 1.2s ease-in-out;
-  display: flex;
-  align-items: center;
-}
-
-.slider-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
-}
-
-.work-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 48px;
-  color: #fff;
-}
-
-.work-content h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-.work-content p {
-  line-height: 1.6;
-  margin-bottom: 14px;
-  color: #ddd;
-}
-
-.price-note {
-  font-style: italic;
-  opacity: 0.85;
-}
-
-.work-content .contact-btn {
-  margin-top: 20px;
-  }
-  /* ===== CONTACT POPUP ===== */
-
-.contact-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 99;
-}
-
-.contact-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background: rgba(20,20,20,0.9);
-  color: #fff;
-  padding: 32px;
-  border-radius: 16px;
-  width: 280px;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.35s ease;
-  z-index: 100;
-}
-
-.contact-popup h2 {
-  margin-bottom: 6px;
-  font-size: 22px;
-}
-
-.contact-popup p {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-bottom: 24px;
-}
-
-.contact-icons {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-}
-
-.contact-icons img {
-  width: 36px;
-  height: 36px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.contact-icons img:hover {
-  transform: scale(1.15);
-  opacity: 0.85;
-}
-
-/* Close button */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-  opacity: 0.6;
-}
-
-.close-btn:hover {
-  opacity: 1;
-}
-
-/* Active state */
-.contact-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.contact-popup.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-}
-  /* ===== SLIDER ===== */
-.slider-wrap {
-  width: 100%;
-  height: 60vh;
-  position: relative;
-  overflow: hidden;
-  background: #000;
-}
-
-.slider-box {
-  width: 100%;
-  height: 100%;
-}
-
-.slider-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.8s ease-in-out;
-  }
-  .slider-wrap {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  overflow: hidden;
-}
-
-.slider-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.8s ease;
-}
-  .contact-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.contact-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.95);
-  background: #111;
-  color: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.contact-popup.show,
-.contact-overlay.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.contact-popup.show {
-  transform: translate(-50%, -50%) scale(1);
-  }
 </style>
 </head>
 
 <body>
 
 <header class="site-header">
-  <div class="logo-wrap">
-    <img src="images/logo.png" alt="Kaelith logo">
-  </div>
-  <div class="header-text">
-    <h1>Kaelith</h1>
-    <p>VISUALS IN MOTION|PHOTOGRAPHY & EDITING</p>
-  </div>
-  
-
-  <button class="contact-btn" id="contactToggle">Contact</button>
+  <div class="logo-wrap"><img src="images/logo.png"></div>
+  <h1>Kaelith</h1>
+  <p>VISUALS IN MOTION · PHOTOGRAPHY & EDITING</p>
+  <button class="contact-btn" id="contactBtn">Contact</button>
+</header>
 
 <div class="contact-popup" id="contactPopup">
-  <a href="https://www.instagram.com/kaleith.co?igsh=MWRxd2xuOXFhYTUx" target="_blank">Instagram</a>
-  <a href="https://wa.me/918627829711" target="_blank">WhatsApp</a>
-</div>
-</header>
-<section class="hero">
- <img src="images/hero.jpg" alt="Hero image" class="hero-img">
-
-  <div class="hero-text">
-    Stillness, before the world moves.
+  <div class="contact-box">
+    <a href="https://www.instagram.com/kaelith.co" target="_blank">Instagram</a>
+    <a href="https://wa.me/918627829711" target="_blank">WhatsApp</a>
   </div>
+</div>
+
+<section class="hero">
+  <img src="images/hero.jpg">
+  <div class="hero-text">Stillness, before the world moves.</div>
 </section>
 
 <section class="intro-bg">
@@ -566,259 +261,68 @@ header p {
       <h2>Hi, I’m Kaelith.</h2>
       <p>I work with visuals — shaping moments through light and silence.</p>
       <p>Editing that feels intentional. Quiet. Human.</p>
-      <p class="soft-line">I notice stillness.</p>
     </div>
     <div class="intro-image">
       <img src="images/intro.jpg">
     </div>
   </div>
 </section>
-  <section class="work-slider">
-  <div class="slider-overlay"></div>
 
+<section class="work-slider" id="workSlider">
+  <div class="work-overlay"></div>
   <div class="work-content">
     <h2>What I Do</h2>
-
-    <p>
-      I work with photography, video editing, and color grading.
-      My focus is creating visuals that feel intentional, quiet, and human.
-    </p>
-
-    <p>
-      I offer shoots, edits, and custom visual work for individuals,
-      brands, and small businesses.
-    </p>
-
-    <p class="price-note">
-      Pricing is flexible and discussed on the spot —
-      based on the work, not fixed packages.
-    </p>
-
+    <p>Photography, video editing, and color grading.</p>
+    <p>Work for individuals, brands, and small businesses.</p>
+    <p><em>Pricing flexible — based on work.</em></p>
   </div>
-  </section>
-
-
-  
-
-  
-</div>
+</section>
 
 <section class="style-story">
   <img src="images/style.jpg">
   <div class="style-text">
     I shoot for mood, not perfection.<br>
-    Soft light. Honest color.<br>
-    Time untouched.
+    Soft light. Honest color.
   </div>
 </section>
 
-<!-- SLIDER 1 -->
-<section class="slider-wrap slider-primary">
-  <div class="slider-box" id="slider-one">
-
-    <div class="slide-item active">
-      <img src="images/slide1.jpg">
-      <div class="caption">
-        <h3>Quiet strength.</h3>
-        <p>Light held gently.</p>
-      </div>
-    </div>
-
-    <div class="slide-item">
-      <img src="images/slide2.jpg">
-      <div class="caption">
-        <h3>Order in the quiet.</h3>
-        <p>Space left untouched.</p>
-      </div>
-    </div>
-
-    <div class="slide-item">
-      <img src="images/slide3.jpg">
-      <div class="caption">
-        <h3>Silence shaped.</h3>
-        <p>Letting frames breathe.</p>
-      </div>
-    </div>
-
-    <!-- ✅ PROGRESS BAR MUST BE HERE -->
-    <div class="progress-track">
-      <div class="progress-fill"></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SLIDER 2 -->
-<section class="slider-wrap slider-nature">
-  <div class="slider-box slider-nature" id="slider-two">
-    <div class="slide-item active">
-      <img src="images/slideA.jpg">
-      <div class="caption">
-        <h4>Still Growing</h4>
-        <p>Natural tones · gentle grain · calm framing</p>
-      </div>
-    </div>
-    <div class="slide-item">
-      <img src="images/slideB.jpg">
-      <div class="caption">
-        <h4>Rooted Calm</h4>
-        <p>Muted greens · shallow depth · organic mood</p>
-      </div>
-    </div>
-    <div class="slide-item">
-      <img src="images/slideC.jpg">
-      <div class="caption">
-        <h4>Soft Bloom</h4>
-        <p>Diffused light · film softness · quiet presence</p>
-      </div>
-    </div>
-    <div class="slide-item">
-      <img src="images/slideD.jpg">
-      <div class="caption">
-        <h4>Held by Light</h4>
-        <p>Pastel warmth · still air · slow moment</p>
-      </div>
-    </div>
-    <div class="progress-track"><div class="progress-fill"></div></div>
+<section class="slider-wrap">
+  <div class="slider-box" id="imageSlider">
+    <div class="slide active"><img src="images/slide1.jpg"></div>
+    <div class="slide"><img src="images/slide2.jpg"></div>
+    <div class="slide"><img src="images/slide3.jpg"></div>
   </div>
 </section>
 
 <script>
-function cinematicSlider(rootId, duration = 3000) {
-  const root = document.getElementById(rootId);
-  if (!root) return;
+/* CONTACT */
+const contactBtn = document.getElementById("contactBtn");
+const popup = document.getElementById("contactPopup");
+contactBtn.onclick = () => popup.classList.toggle("active");
+popup.onclick = () => popup.classList.remove("active");
 
-  const slides = root.querySelectorAll('.slide-item');
-  const bar = root.querySelector('.progress-fill');
-  let index = 0;
+/* WORK BACKGROUND SLIDER */
+const workImages = [
+  "images/slider/1.jpg",
+  "images/slider/2.jpg",
+  "images/slider/3.jpg"
+];
+let w = 0;
+setInterval(() => {
+  document.getElementById("workSlider")
+    .style.backgroundImage = `url(${workImages[w]})`;
+  w = (w + 1) % workImages.length;
+}, 3000);
 
-  function show(i) {
-    slides.forEach(s => s.classList.remove('active'));
-    slides[i].classList.add('active');
-
-    // RESET progress bar
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        bar.style.transition = `width ${duration}ms linear`;
-        bar.style.width = '100%';
-      });
-    });
-  }
-
-  setInterval(() => {
-    index = (index + 1) % slides.length;
-    show(index);
-  }, duration);
-
-  show(index);
-}
-
-cinematicSlider('slider-one', 3000);
-cinematicSlider('slider-two', 3000);
+/* IMAGE SLIDER */
+const slides = document.querySelectorAll(".slide");
+let i = 0;
+setInterval(() => {
+  slides.forEach(s => s.classList.remove("active"));
+  slides[i].classList.add("active");
+  i = (i + 1) % slides.length;
+}, 3000);
 </script>
-  <script>
-  const toggleBtn = document.getElementById("contactToggle");
-  const popup = document.getElementById("contactPopup");
 
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    popup.style.display =
-      popup.style.display === "flex" ? "none" : "flex";
-  });
-
-  document.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-  </script>
-<script>
-  const sliderImages = [
-    "images/slider/1.jpg",
-    "images/slider/2.jpg",
-    "images/slider/3.jpg"
-  ];
-
-  let currentIndex = 0;
-  const sliderSection = document.querySelector(".work-slider");
-
-  function changeSlide() {
-    sliderSection.style.backgroundImage =
-      `url(${sliderImages[currentIndex]})`;
-
-    currentIndex = (currentIndex + 1) % sliderImages.length;
-  }
-
-  changeSlide(); // first image
-  setInterval(changeSlide, 2000);
-</script>
-  <script>
-  const contactBtn = document.getElementById("contactToggle");
-  const popup = document.getElementById("contactPopup");
-  const overlay = document.getElementById("contactOverlay");
-  const closeBtn = document.getElementById("closeContact");
-
-  function openContact() {
-    popup.classList.add("active");
-    overlay.classList.add("active");
-  }
-
-  function closeContact() {
-    popup.classList.remove("active");
-    overlay.classList.remove("active");
-  }
-
-  contactBtn.addEventListener("click", openContact);
-  closeBtn.addEventListener("click", closeContact);
-  overlay.addEventListener("click", closeContact);
-  </script>
-  <script>
-  const slides = [
-    "images/slide1.jpg",
-    "images/slide2.jpg",
-    "images/slide3.jpg"
-  ];
-
-  let currentSlide = 0;
-  const sliderImage = document.getElementById("sliderImage");
-
-  setInterval(() => {
-    sliderImage.style.opacity = 0;
-
-    setTimeout(() => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      sliderImage.src = slides[currentSlide];
-      sliderImage.style.opacity = 1;
-    }, 500);
-  }, 2000);
-  </script>
-  <script>
-  const contactBtn = document.getElementById("contactToggle");
-  const popup = document.getElementById("contactPopup");
-  const overlay = document.getElementById("contactOverlay");
-  const closeBtn = document.getElementById("closeContact");
-
-  if (contactBtn) {
-    contactBtn.addEventListener("click", () => {
-      popup.classList.add("show");
-      overlay.classList.add("show");
-    });
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      popup.classList.remove("show");
-      overlay.classList.remove("show");
-    });
-  }
-
-  if (overlay) {
-    overlay.addEventListener("click", () => {
-      popup.classList.remove("show");
-      overlay.classList.remove("show");
-    });
-  }
-  </script>
 </body>
-    </html>
+  </html>
