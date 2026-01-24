@@ -337,18 +337,16 @@ header p {
   .work-slider {
   position: relative;
   height: 80vh;
-  background-image: url("images/slider/slide1.jpg"); /* ← ADD THIS */
+  background-image: url("/images/slider/slide1.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   }
-.work-slider {
-  background-repeat: no-repeat;
-}
-
 .slider-overlay {
   position: absolute;
+  pointer-events: none;
   inset: 0;
   background: linear-gradient(
     rgba(0,0,0,0.35),
@@ -714,7 +712,7 @@ cinematicSlider('slider-two', 3000);
   </script>
   <script>
   const workSlider = document.querySelector(".work-slider");
-    if (!workSlider) return;
+  if (!workSlider) return;
 
   const workSlides = [
     "images/slider/slide1.jpg",
@@ -724,13 +722,17 @@ cinematicSlider('slider-two', 3000);
 
   let workIndex = 0;
 
-workSlider.style.backgroundImage = `url(${workSlides[0]})`;
+  // set first image immediately
+  workSlider.style.backgroundImage = `url(${workSlides[0]})`;
+  workSlider.style.backgroundSize = "cover";
+  workSlider.style.backgroundPosition = "center";
+  workSlider.style.backgroundRepeat = "no-repeat";
 
-
-setInterval(() => {
-  workIndex = (workIndex + 1) % workSlides.length;
-  workSlider.style.backgroundImage = `url(${workSlides[workIndex]})`;
-}, 3500);
+  // change image every 3.5s
+  setInterval(() => {
+    workIndex = (workIndex + 1) % workSlides.length;
+    workSlider.style.backgroundImage = `url(${workSlides[workIndex]})`;
+  }, 3500);
   </script>
 </body>
 </html>
