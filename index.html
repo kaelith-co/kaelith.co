@@ -708,6 +708,7 @@ cinematicSlider('slider-two', 3000);
   }
   </script>
   <script>
+document.addEventListener("DOMContentLoaded", () => {
   const workSlider = document.querySelector(".work-slider");
   if (!workSlider) return;
 
@@ -720,12 +721,16 @@ cinematicSlider('slider-two', 3000);
   let workIndex = 0;
 
   workSlider.style.backgroundImage = `url(${workSlides[0]})`;
+  workSlider.style.backgroundSize = "cover";
+  workSlider.style.backgroundPosition = "center";
+  workSlider.style.backgroundRepeat = "no-repeat";
 
   setInterval(() => {
     workIndex = (workIndex + 1) % workSlides.length;
     workSlider.style.backgroundImage =
       `url(${workSlides[workIndex]})`;
   }, 3500);
+});
   </script>
 </body>
 </html>
