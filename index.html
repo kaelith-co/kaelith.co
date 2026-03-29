@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO META (populated by script.js from config.js) ── -->
+  <title>Kaelith — Visuals in Motion</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Kaelith" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kaelith — Visuals in Motion" />
+  <meta property="og:description" content="" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── CUSTOM CURSOR ─────────────────────────────────── -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── FILM GRAIN OVERLAY ────────────────────────────── -->
+  <canvas class="grain" id="grainCanvas" aria-hidden="true"></canvas>
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║              HERO SECTION                ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <header class="hero" id="hero" role="banner">
+    <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero__gradient" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Site navigation">
+      <a href="#hero" class="nav__logo" id="navLogo">K</a>
+      <ul class="nav__links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero__content">
+      <h1 class="hero__title" id="heroTitle">Kaelith</h1>
+      <p class="hero__subtitle" id="heroSubtitle">Visuals in Motion</p>
+      <a href="#work" class="hero__scroll" aria-label="Scroll to work">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-text">scroll</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║          FEATURED WORK GRID              ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section class="work" id="work" aria-labelledby="workHeading">
+      <div class="section-header reveal">
+        <span class="section-label">Selected Work</span>
+        <h2 class="section-title" id="workHeading">Every Frame<br><em>Intentional</em></h2>
+      </div>
+
+      <!-- Grid is populated by script.js -->
+      <div class="work__grid" id="workGrid" role="list"></div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║             ABOUT SECTION                ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section class="about" id="about" aria-labelledby="aboutHeading">
+      <div class="about__inner">
+        <div class="about__left reveal">
+          <span class="section-label">About</span>
+          <h2 class="section-title" id="aboutHeading">The Eye<br><em>Behind It</em></h2>
+          <div class="about__divider"></div>
+        </div>
+        <div class="about__right reveal">
+          <p class="about__intro" id="aboutIntro"></p>
+          <div class="about__meta" id="aboutMeta"></div>
+          <p class="about__description" id="aboutDescription"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║            SERVICES SECTION              ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section class="services" id="services" aria-labelledby="servicesHeading">
+      <div class="section-header reveal">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title" id="servicesHeading">Craft &amp;<br><em>Intention</em></h2>
+      </div>
+      <!-- Cards populated by script.js -->
+      <div class="services__grid" id="servicesGrid"></div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║            CONTACT SECTION               ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section class="contact" id="contact" aria-labelledby="contactHeading">
+      <div class="contact__inner reveal">
+        <h2 class="contact__headline" id="contactHeadline"></h2>
+        <div class="contact__buttons" id="contactButtons"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <p id="footerText">© <span id="year"></span> Kaelith. All rights reserved.</p>
+  </footer>
+
+  <!-- ── SCRIPTS ────────────────────────────────────── -->
+  <!-- config.js must load BEFORE script.js -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
