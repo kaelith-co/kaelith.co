@@ -90,8 +90,8 @@ const siteData = {
   // ── CONTACT ─────────────────────────────────────────────────
   contact: {
     headline: "Let's create something timeless.",
-    instagram: "https://instagram.com/yourusername",
-    whatsapp: "https://wa.me/yournumber",
+    instagram: "https://instagram.com/kaelith_co",
+    whatsapp: "https://wa.me/+91 8627829711",
   },
 
   // ── SEO META ────────────────────────────────────────────────
