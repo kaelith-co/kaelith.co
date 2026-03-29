@@ -100,7 +100,7 @@
   // Instagram button
   const igBtn = document.createElement('a');
   igBtn.href      = c.instagram;
-  igBtn.target    = '_blank';
+  igBtn.target    = 'kaelith_co';
   igBtn.rel       = 'noopener noreferrer';
   igBtn.className = 'btn btn--instagram';
   igBtn.setAttribute('aria-label', 'Instagram profile');
@@ -115,7 +115,7 @@
   // WhatsApp button
   const waBtn = document.createElement('a');
   waBtn.href      = c.whatsapp;
-  waBtn.target    = '_blank';
+  waBtn.target    = '+91 8627829711';
   waBtn.rel       = 'noopener noreferrer';
   waBtn.className = 'btn btn--whatsapp';
   waBtn.setAttribute('aria-label', 'WhatsApp contact');
