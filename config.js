@@ -96,8 +96,8 @@ const siteData = {
 
   // ── SEO META ────────────────────────────────────────────────
   seo: {
-    description: "Kaelith — Cinematic color grading, visual editing & storytelling. Premium visuals crafted to move people.",
-    keywords: "color grading, cinematic editing, visual storytelling, video editor, cinematography portfolio",
-  },
+  description: "Cinematic photography, color grading & visual storytelling by Kaelith. Visuals in Motion.",
+  keywords: "cinematic photography, video editing, color grading, visual storytelling, Kaelith"
+}
 
 };
