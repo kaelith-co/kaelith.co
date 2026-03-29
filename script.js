@@ -15,7 +15,7 @@
   // ── 2. HERO ────────────────────────────────────────────────
   document.getElementById('heroTitle').textContent    = siteData.title;
   document.getElementById('heroSubtitle').textContent = siteData.subtitle;
-  document.getElementById('navLogo').textContent      = siteData.title.charAt(0);
+  document.getElementById('navLogo').textContent      = siteData.title;
   document.title = `${siteData.title} — ${siteData.subtitle}`;
 
   // Hero background image (set via config.js heroBackground)
