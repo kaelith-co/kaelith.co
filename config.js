@@ -63,8 +63,8 @@ const siteData = {
   // ── ABOUT ───────────────────────────────────────────────────
   about: {
     intro: "I don't just edit visuals. I shape moments into something you feel.",
-    dob: "Your DOB here",          // e.g. "12 April 2000"
-    location: "Your Location",     // e.g. "Mumbai, India"
+    dob: "3 September 2007",          // e.g. "12 April 2000"
+    location: "Kullu, Himachal",     // e.g. "Mumbai, India"
     description: "Specialising in cinematic color grading and visual storytelling, I turn raw footage into emotional experiences. Every frame is a decision — light, tone, pacing — built to move people.",
   },
 
