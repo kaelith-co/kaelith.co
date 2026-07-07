@@ -59,7 +59,6 @@
 
   const meta = document.getElementById('aboutMeta');
   const metaItems = [
-    { label: 'DOB',      value: a.dob },
     { label: 'Based In', value: a.location },
   ];
   metaItems.forEach(({ label, value }) => {
