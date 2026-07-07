@@ -622,15 +622,8 @@ body.cursor-hover .cursor-ring {
   flex-shrink: 0;
 }
 
-/* Pricing responsive */
-@media (max-width: 1024px) {
-  .pricing__grid { grid-template-columns: repeat(2, 1fr); }
-  .pricing__card--custom { grid-column: span 2; }
-}
-@media (max-width: 500px) {
-  .pricing__grid { grid-template-columns: 1fr; }
-  .pricing__card--custom { grid-column: span 1; flex-direction: column; gap: 1.5rem; }
-}
+
+ 
 /* ═══════════════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════════════ */
@@ -736,6 +729,15 @@ body.cursor-hover .cursor-ring {
   .work__grid { grid-template-columns: 1fr; }
   .work__item:nth-child(5), .work__item:nth-child(8) { grid-column: span 1; }
 }
+/* Pricing responsive */
+@media (max-width: 1024px) {
+  .pricing__grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing__card--custom { grid-column: span 2; }
+}
+@media (max-width: 500px) {
+  .pricing__grid { grid-template-columns: 1fr; }
+  .pricing__card--custom { grid-column: span 1; flex-direction: column; gap: 1.5rem; 
+                         }
 
 /* ── hide hardware cursor on desktop ───────────────────────── */
 @media (pointer: coarse) {
