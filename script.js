@@ -84,6 +84,19 @@
     `;
     servicesGrid.appendChild(card);
   });
+   // Pricing cards stagger reveal
+const pricingCards = document.querySelectorAll('.pricing__card');
+const pricingObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const i = parseInt(entry.target.getAttribute('data-pi') || '0', 10);
+      entry.target.style.transitionDelay = `${(i % 3) * 0.10}s`;
+      entry.target.classList.add('visible');
+      pricingObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+pricingCards.forEach(el => pricingObs.observe(el));
 
   // ── 6. CONTACT ─────────────────────────────────────────────
   const c = siteData.contact;
