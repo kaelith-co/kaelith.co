@@ -766,7 +766,7 @@ body.cursor-hover .cursor-ring {
   transition: background 0.38s, color 0.38s,
               border-color 0.38s, transform 0.38s var(--ease-silk),
               box-shadow 0.38s;
-  animation: floatIn 1s var(--ease-silk) 1.5s both;
+  opacity: 1;
 }
 .float-query:hover {
   background: var(--gold);
