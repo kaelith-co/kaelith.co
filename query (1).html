@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Query — Kaelith</title>
+  <meta name="description" content="Get in touch with Kaelith for portrait, café, product, branding, event or custom photography projects." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    :root {
+      --cream:      #F7F3EE;
+      --cream-dark: #EDE7DE;
+      --gold:       #C9A96E;
+      --gold-light: #DEC48A;
+      --gold-dim:   #A88850;
+      --brown:      #6B4F35;
+      --ink:        #1A1614;
+      --ink-soft:   #2E2520;
+      --mist:       #D8D0C8;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Outfit', sans-serif;
+      --ease-silk:    cubic-bezier(0.16, 1, 0.3, 1);
+      --max-w:        1160px;
+      --gutter:       clamp(1.5rem, 5vw, 4rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: none;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── GRAIN ────────────────────────────────────────── */
+    .grain {
+      position: fixed;
+      inset: -50%;
+      width: 200%; height: 200%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.030;
+      mix-blend-mode: multiply;
+    }
+
+    /* ── CURSOR ───────────────────────────────────────── */
+    .cursor-dot, .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition-timing-function: var(--ease-silk);
+      transition-property: transform, opacity;
+    }
+    .cursor-dot  { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; transition-duration: 0.05s; }
+    .cursor-ring { width: 36px; height: 36px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0.55; transition-duration: 0.18s; }
+    body.cursor-hover .cursor-ring { transform: translate(-50%,-50%) scale(1.7); opacity: 0.85; }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem var(--gutter);
+      background: rgba(247,243,238,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,169,110,0.18);
+    }
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.06em;
+    }
+    .nav__links { display: flex; gap: clamp(1.4rem, 3vw, 2.8rem); }
+    .nav__links a {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease-silk);
+    }
+    .nav__links a:hover { color: var(--gold-dim); }
+    .nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
+    .nav__links a.active { color: var(--gold-dim); }
+
+    /* ── PAGE ─────────────────────────────────────────── */
+    .page { padding-top: 96px; }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .qhero {
+      padding: clamp(3.5rem, 7vw, 6rem) var(--gutter) clamp(2rem, 4vw, 3rem);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .qhero__label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1rem;
+    }
+    .qhero__title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 1.06;
+      color: var(--ink);
+    }
+    .qhero__title em { font-style: italic; color: var(--gold); }
+
+    /* ── DIVIDER ──────────────────────────────────────── */
+    .hr-gold {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .hr-gold hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.35;
+    }
+
+    /* ── MAIN LAYOUT ──────────────────────────────────── */
+    .qbody {
+      max-width: var(--max-w);
+      margin: clamp(3rem, 6vw, 5rem) auto 0;
+      padding: 0 var(--gutter);
+      display: grid;
+      grid-template-columns: 1fr 1.7fr;
+      gap: clamp(3rem, 7vw, 8rem);
+      align-items: start;
+    }
+
+    /* ── LEFT PANEL ───────────────────────────────────── */
+    .qleft__divider {
+      width: 50px; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 2rem 0 1.8rem;
+    }
+    .qleft__sub {
+      font-size: 0.88rem;
+      color: var(--brown);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+    .qleft__info { display: flex; flex-direction: column; gap: 1rem; }
+    .qleft__info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .qleft__info-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .qleft__info-val {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+    }
+    .qleft__info-val a {
+      color: var(--ink-soft);
+      transition: color 0.3s;
+    }
+    .qleft__info-val a:hover { color: var(--gold); }
+
+    /* ── FORM ─────────────────────────────────────────── */
+    .qform {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem 2rem;
+    }
+    .qfield { display: flex; flex-direction: column; gap: 0.5rem; }
+    .qfield--full { grid-column: span 2; }
+
+    .qlabel {
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .qinput {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--mist);
+      padding: 0.8rem 0;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.35s var(--ease-silk);
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+    .qinput::placeholder { color: rgba(107,79,53,0.32); }
+    .qinput:focus { border-bottom-color: var(--gold); }
+    .qinput.err { border-bottom-color: #B03030; }
+
+    /* Select */
+    .qselect-wrap { position: relative; }
+    .qselect-wrap select { cursor: none; padding-right: 1.4rem; }
+    .qselect-wrap select option { background: var(--cream); color: var(--ink); }
+    .qselect-arrow {
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      color: var(--gold-dim);
+      pointer-events: none;
+      transition: transform 0.3s;
+    }
+    .qinput:focus + .qselect-arrow { transform: translateY(-50%) rotate(180deg); }
+
+    /* Textarea */
+    .qtextarea { resize: none; line-height: 1.75; padding-top: 0.8rem; }
+
+    /* Submit */
+    .qsubmit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2.6rem;
+      background: var(--ink);
+      color: var(--cream);
+      border: 1px solid var(--ink);
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.73rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: background 0.38s, color 0.38s, border-color 0.38s,
+                  transform 0.38s var(--ease-silk), box-shadow 0.38s;
+      align-self: flex-start;
+    }
+    .qsubmit:hover {
+      background: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(201,169,110,0.25);
+    }
+    .qsubmit:disabled { opacity: 0.45; pointer-events: none; }
+    .qsubmit__arrow { transition: transform 0.35s var(--ease-silk); }
+    .qsubmit:hover .qsubmit__arrow { transform: translateX(5px); }
+
+    /* Status */
+    .qstatus {
+      font-size: 0.82rem;
+      min-height: 1.2rem;
+      grid-column: span 2;
+      letter-spacing: 0.04em;
+      transition: opacity 0.4s;
+    }
+    .qstatus.success { color: #4A7C4E; }
+    .qstatus.fail    { color: #B03030; }
+
+    /* ── FOOTER NOTES ─────────────────────────────────── */
+    .qnotes {
+      max-width: var(--max-w);
+      margin: clamp(3rem, 6vw, 5rem) auto 0;
+      padding: 2rem var(--gutter) clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 3rem;
+    }
+    .qnote {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.82rem;
+      color: var(--brown);
+    }
+    .qnote::before { content: '✔'; color: var(--gold); font-size: 0.72rem; flex-shrink: 0; }
+
+    /* ── FOOTER BAR ───────────────────────────────────── */
+    .footer {
+      padding: 2rem var(--gutter);
+      background: var(--ink-soft);
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,169,110,0.35);
+    }
+    .footer a { color: rgba(201,169,110,0.5); transition: color 0.3s; }
+    .footer a:hover { color: var(--gold); }
+
+    /* ── REVEAL ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s var(--ease-silk), transform 0.85s var(--ease-silk);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 860px) {
+      .qbody { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 560px) {
+      .qform { grid-template-columns: 1fr; }
+      .qfield--full { grid-column: span 1; }
+      .qstatus { grid-column: span 1; }
+      .nav__links { display: none; }
+    }
+    @media (pointer: coarse) {
+      body { cursor: auto; }
+      .cursor-dot, .cursor-ring { display: none; }
+      .qsubmit, .qselect-wrap select { cursor: pointer; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas class="grain" id="grainCanvas" aria-hidden="true"></canvas>
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Site navigation">
+    <a href="index.html" class="nav__logo">Kaelith</a>
+    <ul class="nav__links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="query.html" class="active">Query</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <!-- HEADER -->
+    <header class="qhero reveal">
+      <span class="qhero__label">Get in Touch</span>
+      <h1 class="qhero__title">Let's Talk About<br><em>Your Project</em></h1>
+    </header>
+
+    <div class="hr-gold"><hr/></div>
+
+    <!-- BODY -->
+    <div class="qbody">
+
+      <!-- LEFT -->
+      <aside class="qleft reveal">
+        <span style="display:block;font-size:0.65rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:0.8rem;">Query</span>
+        <p class="qleft__sub">Fill in the form and I'll get back to you within 24 hours. Every project starts with a conversation.</p>
+        <div class="qleft__divider"></div>
+        <div class="qleft__info">
+          <div class="qleft__info-item">
+            <span class="qleft__info-label">Email</span>
+            <span class="qleft__info-val"><a href="mailto:kaelith456@gmail.com">kaelith456@gmail.com</a></span>
+          </div>
+          <div class="qleft__info-item">
+            <span class="qleft__info-label">Response Time</span>
+            <span class="qleft__info-val">Within 24 hours</span>
+          </div>
+          <div class="qleft__info-item">
+            <span class="qleft__info-label">Booking</span>
+            <span class="qleft__info-val">Advance booking recommended</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- FORM -->
+      <section aria-label="Query form">
+        <form class="qform reveal" id="queryForm" novalidate>
+
+          <!-- Name -->
+          <div class="qfield">
+            <label class="qlabel" for="q-name">Full Name *</label>
+            <input class="qinput" type="text" id="q-name" name="name" placeholder="Your name" required autocomplete="name"/>
+          </div>
+
+          <!-- Email -->
+          <div class="qfield">
+            <label class="qlabel" for="q-email">Email Address *</label>
+            <input class="qinput" type="email" id="q-email" name="email" placeholder="your@email.com" required autocomplete="email"/>
+          </div>
+
+          <!-- Phone -->
+          <div class="qfield">
+            <label class="qlabel" for="q-phone">Phone Number</label>
+            <input class="qinput" type="tel" id="q-phone" name="phone" placeholder="+91 00000 00000" autocomplete="tel"/>
+          </div>
+
+          <!-- Service -->
+          <div class="qfield">
+            <label class="qlabel" for="q-service">Service Type *</label>
+            <div class="qselect-wrap">
+              <select class="qinput" id="q-service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="Portrait Photography">Portrait Photography</option>
+                <option value="Café Photography">Café Photography</option>
+                <option value="Product Photography">Product Photography</option>
+                <option value="Personal Branding">Personal Branding</option>
+                <option value="Events">Events</option>
+                <option value="Custom Project">Custom Project</option>
+                <option value="Other">Other</option>
+              </select>
+              <span class="qselect-arrow" aria-hidden="true">↓</span>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="qfield qfield--full">
+            <label class="qlabel" for="q-message">Your Message *</label>
+            <textarea class="qinput qtextarea" id="q-message" name="message" rows="5"
+              placeholder="Tell me about your project, timeline, location, and any details..." required></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div class="qfield qfield--full">
+            <button class="qsubmit" type="submit" id="qBtn">
+              <span id="qBtnText">Send Message</span>
+              <span class="qsubmit__arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <!-- Status -->
+          <p class="qstatus" id="qStatus" aria-live="polite"></p>
+
+        </form>
+      </section>
+    </div>
+
+    <!-- FOOTER NOTES -->
+    <div class="hr-gold" style="margin-top: clamp(2rem,5vw,4rem);"><hr/></div>
+    <footer class="qnotes" aria-label="Booking notes">
+      <p class="qnote">Professionally edited high-resolution images</p>
+      <p class="qnote">Advance booking recommended</p>
+      <p class="qnote">Response within 24 hours</p>
+    </footer>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>© <span id="yr"></span> Kaelith. All rights reserved. &nbsp;·&nbsp; <a href="index.html">Back to portfolio</a></p>
+  </footer>
+
+  <script>
+    'use strict';
+
+    // ── EmailJS init ──────────────────────────────────────────
+    // STEP 1: Replace with your actual EmailJS Public Key
+    emailjs.init({ publicKey: 'o-Jsr0SowFEZ5BKe5' });
+
+    // ── Year ──────────────────────────────────────────────────
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ── Scroll reveal ─────────────────────────────────────────
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ── Custom cursor ─────────────────────────────────────────
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+    });
+    (function animRing() {
+      rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+    document.querySelectorAll('a, button, .qinput').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    // ── Film grain ────────────────────────────────────────────
+    const canvas = document.getElementById('grainCanvas');
+    const ctx    = canvas.getContext('2d');
+    function resizeGrain() { canvas.width = window.innerWidth * 0.5; canvas.height = window.innerHeight * 0.5; }
+    resizeGrain();
+    window.addEventListener('resize', resizeGrain, { passive: true });
+    (function renderGrain() {
+      const w = canvas.width, h = canvas.height;
+      const id = ctx.createImageData(w, h);
+      const b  = id.data;
+      for (let i = 0; i < b.length; i += 4) {
+        const v = (Math.random() * 255) | 0;
+        b[i] = b[i+1] = b[i+2] = v; b[i+3] = 255;
+      }
+      ctx.putImageData(id, 0, 0);
+      requestAnimationFrame(renderGrain);
+    })();
+
+    // ── Form submission ───────────────────────────────────────
+    const form   = document.getElementById('queryForm');
+    const btn    = document.getElementById('qBtn');
+    const btnTxt = document.getElementById('qBtnText');
+    const status = document.getElementById('qStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Validate required fields
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(f => {
+        f.classList.remove('err');
+        if (!f.value.trim()) { f.classList.add('err'); valid = false; }
+      });
+      if (!valid) {
+        status.textContent = 'Please fill in all required fields.';
+        status.className   = 'qstatus fail';
+        return;
+      }
+
+      // Sending state
+      btn.disabled  = true;
+      btnTxt.textContent = 'Sending…';
+      status.textContent = '';
+      status.className   = 'qstatus';
+
+      const params = {
+        from_name:  document.getElementById('q-name').value.trim(),
+        from_email: document.getElementById('q-email').value.trim(),
+        phone:      document.getElementById('q-phone').value.trim() || 'Not provided',
+        service:    document.getElementById('q-service').value,
+        message:    document.getElementById('q-message').value.trim(),
+        to_email:   'kaelith456@gmail.com',
+        reply_to:   document.getElementById('q-email').value.trim(),
+      };
+
+      try {
+        // STEP 2: Replace with your Service ID and Template ID from EmailJS dashboard
+        await emailjs.send('service_t93s9o9', 'template_al2llai', params);
+
+        status.textContent = '✔  Message sent! I\'ll get back to you within 24 hours.';
+        status.className   = 'qstatus success';
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        status.textContent = 'Something went wrong. Please email me directly at kaelith456@gmail.com';
+        status.className   = 'qstatus fail';
+      } finally {
+        btn.disabled = false;
+        btnTxt.textContent = 'Send Message';
+      }
+    });
+
+    // Clear error highlight on edit
+    form.querySelectorAll('.qinput').forEach(inp => {
+      inp.addEventListener('input', () => inp.classList.remove('err'));
+    });
+  </script>
+
+</body>
+</html>
