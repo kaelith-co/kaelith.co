@@ -734,7 +734,6 @@ body.cursor-hover .cursor-ring {
   .pricing__grid { grid-template-columns: repeat(2, 1fr); }
   .pricing__card--custom { grid-column: span 2; }
 }
-pricing__grid
 
 /* ── hide hardware cursor on desktop ───────────────────────── */
 @media (pointer: coarse) {
