@@ -806,3 +806,44 @@ body.cursor-hover .cursor-ring {
     font-size: 0.7rem;
   }
 }
+/* ── FLOATING GALLERY BUTTON ─────────────────────────── */
+.float-gallery {
+  position: fixed;
+  bottom: 6rem;
+  right: 2.5rem;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.8rem;
+  background: transparent;
+  border: 1px solid rgba(201,169,110,0.35);
+  color: var(--gold-dim);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 1;
+  transition: background 0.38s, color 0.38s, border-color 0.38s,
+              transform 0.38s var(--ease-silk), box-shadow 0.38s;
+}
+.float-gallery:hover {
+  background: var(--gold);
+  color: var(--ink);
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(201,169,110,0.3);
+}
+.float-gallery__icon { font-size: 1rem; }
+.float-gallery__text { display: inline; }
+
+@media (max-width: 500px) {
+  .float-gallery {
+    padding: 0.85rem 1.4rem;
+    bottom: 5rem;
+    right: 1.5rem;
+    font-size: 0.7rem;
+  }
+}
