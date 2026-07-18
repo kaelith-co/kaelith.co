@@ -23,7 +23,7 @@ const galleryData = {
   // That's it — no CSS changes needed ever.
 
   images: [
-    { src: "gallery/l1.webp",  category: "landscape", alt: "Mountain range at golden hour" },
+    { src: "gallery/l1.webp",  category: "Nature", alt: "Mountain range at golden hour" },
     { src: "gallery/p1.webp",  category: "portrait",  alt: "Portrait in natural light" },
     { src: "gallery/a1.webp",  category: "animal",    alt: "Bird in natural habitat" },
     { src: "gallery/f1.webp",  category: "food",      alt: "Café coffee and pastry" },
